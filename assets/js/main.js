@@ -5,14 +5,14 @@
  * 4. Infine scrivi sulla pagina il risultato usando questo formato: nomecognomecolorepreferito23 */
 
 // 1. Inserisco un prompt per chiedere all'utente il nome, salvandolo in una variabile
-const name = prompt("Inserisci il tuo nome");
+const userName = prompt("Inserisci il tuo nome");
 // Visualizzo a console.log il risultato del prompt
-console.log(name);
+console.log(userName);
 
 // 2. Inserisco un prompt per chiedere all'utente il nome, salvandolo in una variabile
-const surname = prompt("Inserisci il tuo cognome");
+const userSurname = prompt("Inserisci il tuo cognome");
 // Visualizzo a console.log il risultato del prompt
-console.log(surname);
+console.log(userSurname);
 
 // 3. Inserisco un prompt per chiedere all'utente il nome, salvandolo in una variabile
 const color = prompt("Inserisci il tuo colore preferito");
@@ -20,7 +20,7 @@ const color = prompt("Inserisci il tuo colore preferito");
 console.log(color);
 
 // 3. Inserisco i dati per genrare la password
-const pwd = `${name}${surname}${color}23`;
+const pwd = `${userName}${userSurname}${color}23`;
 // Visualizzo a console.log la password insicurissima
 console.log(color);
 
