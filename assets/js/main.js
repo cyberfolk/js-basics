@@ -8,6 +8,13 @@
  * - Va applicato uno sconto del 40% per gli over 65.
  * 4 L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). */
 
+// Definisco le costanti fornite dal testo dell'esercizio
+const EURO_AT_KM = 0.21;
+const AGE_MIN = 18;
+const AGE_MIN_DISCOUNT = 0.2;
+const AGE_MAX = 65;
+const AGE_MAX_DISCOUNT = 0.4;
+
 // 1. Inserisco un prompt per chiedere all'utente il numero di km che vuole percorrere, salvandolo in una variabile
 const kmSet = prompt("Quanti km vuoi percorrere");
 // Visualizzo a console.log il risultato del prompt
@@ -17,13 +24,6 @@ console.log(`kmSet = ${kmSet}`);
 const ageUser = prompt("Quanti anni hai?");
 // Visualizzo a console.log il risultato del prompt
 console.log(`ageUser = ${ageUser}`);
-
-// Definisco la costante per indicare quanti eruo costa un km
-const EURO_AT_KM = 0.21;
-const AGE_MIN = 18;
-const AGE_MIN_DISCOUNT = 0.2;
-const AGE_MAX = 65;
-const AGE_MAX_DISCOUNT = 0.4;
 
 // Calcolo quanto dovrebbe costare il biglietto a prezzo intero
 let ticketBill = kmSet * EURO_AT_KM;
