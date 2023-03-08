@@ -41,4 +41,4 @@ if (ageUser < AGE_MIN) {
 }
 
 // Visualizzo a console.log il prezzo finale del biglietto
-console.log(`ticketBill = ${ticketBill}€`);
+console.log(`ticketBill = ${ticketBill.toFixed(2)}€`);
