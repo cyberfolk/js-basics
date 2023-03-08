@@ -41,9 +41,11 @@ console.log(`Fase di valutazione sconti`);
 if (ageUser < AGE_MIN) {
   ticketBill = ticketBill * (1 - AGE_MIN_DISCOUNT);
   console.log(`ageUser: ${ageUser} < 18 ---> Applico Sconto del 20%`);
+  document.getElementById("discount_type").innerHTML = `(-${AGE_MIN_DISCOUNT * 100}%) Sconto Under ${AGE_MIN}`;
 } else if (ageUser > AGE_MAX) {
   ticketBill = ticketBill * (1 - AGE_MAX_DISCOUNT);
   console.log(`ageUser: ${ageUser} > 65 ---> Applico Sconto del 40%`);
+  document.getElementById("discount_type").innerHTML = `(-${AGE_MAX_DISCOUNT * 100}%) Sconto Over ${AGE_MAX}`;
 }
 
 // Visualizzo a console.log il prezzo finale del biglietto
