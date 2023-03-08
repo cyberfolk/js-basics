@@ -18,16 +18,16 @@ const AGE_MAX_DISCOUNT = 0.4;
 // 1. Inserisco un prompt per chiedere all'utente il numero di km che vuole percorrere, salvandolo in una variabile
 const kmSet = prompt("Quanti km vuoi percorrere");
 // Visualizzo a console.log il risultato del prompt
-console.log(`kmSet = ${kmSet}`);
+console.log(`kmSet = ${kmSet}km`);
 // Visualizzo sulla pagina kmSet nel suo apposito elemento della dom
-document.getElementById("kmSet_box").innerHTML = kmSet;
+document.getElementById("kmSet_box").innerHTML = kmSet + "km";
 
 // 2. Inserisco un prompt per chiedere all'utente l'età, salvandolo in una variabile
 const ageUser = prompt("Quanti anni hai?");
 // Visualizzo a console.log il risultato del prompt
 console.log(`ageUser = ${ageUser}`);
 // Visualizzo sulla pagina ageUser nel suo apposito elemento della dom
-document.getElementById("ageUser_box").innerHTML = ageUser;
+document.getElementById("ageUser_box").innerHTML = ageUser + " anni";
 
 // Calcolo quanto dovrebbe costare il biglietto a prezzo intero
 let ticketBill = kmSet * EURO_AT_KM;
