@@ -42,3 +42,5 @@ if (ageUser < AGE_MIN) {
 
 // Visualizzo a console.log il prezzo finale del biglietto
 console.log(`ticketBill = ${ticketBill.toFixed(2)}€`);
+// Visualizzo sulla pagina ticketBill nel suo apposito elemento della dom
+document.getElementById("ticketBill_box").innerHTML = ticketBill.toFixed(2) + "€";
