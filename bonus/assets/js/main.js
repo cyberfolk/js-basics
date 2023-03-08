@@ -34,7 +34,7 @@ let ticketBill = kmSet * EURO_AT_KM;
 // Visualizzo a console.log il risultato del Calcolo
 console.log(`ticketBill = ${ticketBill}€`);
 // Visualizzo sulla pagina ticketBill nel suo apposito elemento della dom
-document.getElementById("ticketBill_box").innerHTML = ticketBill + "€";
+document.getElementById("ticketBill_box").innerHTML = ticketBill.toFixed(2) + "€";
 
 // Confronto l'eta dell'utente d applico gli sconti gli sconti
 console.log(`Fase di valutazione sconti`);
@@ -48,3 +48,5 @@ if (ageUser < AGE_MIN) {
 
 // Visualizzo a console.log il prezzo finale del biglietto
 console.log(`ticketBill = ${ticketBill.toFixed(2)}€`);
+// Visualizzo sulla pagina ticketBill nel suo apposito elemento della dom
+document.getElementById("ticketBill_discount_box").innerHTML = ticketBill.toFixed(2) + "€";
