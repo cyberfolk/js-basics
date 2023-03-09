@@ -22,29 +22,14 @@ const AGE_MAX_DISCOUNT = 0.4;
 //#endregion ========================================================
 
 //#region Prelevo Elementi da HTML e li visualizzo a console ========
-const id_inputE = document.getElementById("id_input");
-console.log(`id_input = ${id_inputE}`);
-
-const id_outputE = document.getElementById("id_output");
-console.log(`id_outputE = ${id_outputE}`);
-
-const km_inputE = document.getElementById("km_input");
-console.log(`km_inputE = ${km_inputE}`);
-
-const age_selectE = document.getElementById("age_select");
-console.log(`age_selectE = ${age_selectE}`);
-
-const offer_boxE = document.getElementById("offer_box");
-console.log(`offer_boxE = ${offer_boxE}`);
-
-const ticket_bill_boxE = document.getElementById("ticket_bill_box");
-console.log(`ticket_bill_boxE = ${ticket_bill_boxE}`);
-
-const cp_boxE = document.getElementById("cp_box");
-console.log(`ticket_bill_boxE = ${cp_boxE}`);
-
-const carriage_boxE = document.getElementById("carriage_box");
-console.log(`carriage_boxE = ${carriage_boxE}`);
+const id_inputE = getAndLogElement("id_input");
+const id_outputE = getAndLogElement("id_output");
+const km_inputE = getAndLogElement("km_input");
+const age_selectE = getAndLogElement("age_select");
+const offer_boxE = getAndLogElement("offer_box");
+const ticket_boxE = getAndLogElement("ticket_box");
+const cp_boxE = getAndLogElement("cp_box");
+const carriage_boxE = getAndLogElement("carriage_box");
 //#endregion ========================================================
 
 const generateBtn = document.getElementById("generate");
@@ -82,7 +67,7 @@ generateBtn.addEventListener("click", function () {
 
   // Visualizzo il prezzo finale del biglietto sia su console che sull'apposito elemento HTML
   console.log(`ticket_bill NOW = ${ticket_bill.toFixed(2)}€`);
-  ticket_bill_boxE.innerHTML = ticket_bill.toFixed(2) + "€";
+  ticket_boxE.innerHTML = ticket_bill.toFixed(2) + "€";
 
   // Genero random il codice_cp e lo visualizzo sia su console che sull'apposito elemento HTML
   const cp = Math.floor(Math.random() * 100000);
@@ -102,7 +87,15 @@ cancelBtn.addEventListener("click", function () {
   km_inputE.value = "";
   age_selectE.value = "";
   offer_boxE.innerHTML = "";
-  ticket_bill_boxE.innerHTML = "";
+  ticket_boxE.innerHTML = "";
   cp_boxE.innerHTML = "";
   carriage_boxE.innerHTML = "";
 });
+
+//region Function ===================================================
+function getAndLogElement(element) {
+  const elementE = document.getElementById(element);
+  console.log(element + "=" + elementE);
+  return elementE;
+}
+//#endregion ========================================================
