@@ -37,13 +37,24 @@ console.log(`age_user = ${age_user}`);
 // Visualizzo sulla pagina ageUser nel suo apposito elemento della dom
 document.getElementById("age_user_box").innerHTML = age_user + " anni";
 
+// Genero random il codice_cp
+const cp = Math.floor(Math.random() * 100000);
+// Visualizzo a console.log il risultato del Calcolo
+console.log(`cp = ${cp}`);
+// Visualizzo sulla pagina il codice cp nel suo apposito elemento della dom
+document.getElementById("cp_box").innerHTML = cp;
+
+// Genero il numero della carrozza
+const carriage = Math.floor(Math.random() * 10 + 1);
+// Visualizzo a console.log il risultato del Calcolo
+console.log(`carriage = ${carriage}`);
+// Visualizzo sulla pagina il numero di carrozza nel suo apposito elemento della dom
+document.getElementById("carriage_box").innerHTML = carriage;
+
 // Calcolo quanto dovrebbe costare il biglietto a prezzo intero
 let ticket_bill = kmSet * EURO_AT_KM;
 // Visualizzo a console.log il risultato del Calcolo
 console.log(`ticket_bill = ${ticket_bill}€`);
-// Visualizzo sulla pagina ticket_bill nel suo apposito elemento della dom
-document.getElementById("ticket_bill_box").innerHTML = ticket_bill.toFixed(2) + "€";
-
 // Confronto l'eta dell'utente d applico gli sconti gli sconti
 console.log(`Fase di valutazione sconti`);
 if (age_user < AGE_MIN) {
@@ -55,6 +66,7 @@ if (age_user < AGE_MIN) {
   console.log(`age_user: ${age_user} > 65 ---> Applico Sconto del 40%`);
   document.getElementById("offer_box").innerHTML = `Biglietto Over ${AGE_MAX}`;
 }
-
 // Visualizzo a console.log il prezzo finale del biglietto
-console.log(`ticket_bill = ${ticket_bill.toFixed(2)}€`);
+console.log(`ticket_bill NOW = ${ticket_bill.toFixed(2)}€`);
+// Visualizzo sulla pagina ticket_bill nel suo apposito elemento della dom
+document.getElementById("ticket_bill_box").innerHTML = ticket_bill.toFixed(2) + "€";
