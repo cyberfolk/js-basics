@@ -31,8 +31,8 @@ console.log(`id_outputE = ${id_outputE}`);
 const km_inputE = document.getElementById("km_input");
 console.log(`km_inputE = ${km_inputE}`);
 
-const age_inputE = document.getElementById("age_input");
-console.log(`age_inputE = ${age_inputE}`);
+const age_selectE = document.getElementById("age_select");
+console.log(`age_selectE = ${age_selectE}`);
 
 const offer_boxE = document.getElementById("offer_box");
 console.log(`offer_boxE = ${offer_boxE}`);
@@ -58,8 +58,8 @@ generateBtn.addEventListener("click", function () {
   const km = km_inputE.value;
   console.log(`km = ${km}`);
 
-  // Prelevo il valore da age_inputE e lo visualizzo a console
-  const age = age_inputE.value;
+  // Prelevo il valore da age_selectE e lo visualizzo a console
+  const age = age_selectE.value;
   console.log(`age = ${age}`);
 
   // Calcolo quanto dovrebbe costare il biglietto a prezzo intero e lo visualizzo a console
@@ -100,7 +100,7 @@ cancelBtn.addEventListener("click", function () {
   id_inputE.value = "";
   id_outputE.innerHTML = "";
   km_inputE.value = "";
-  age_inputE.value = "";
+  age_selectE.value = "";
   offer_boxE.innerHTML = "";
   ticket_bill_boxE.innerHTML = "";
   cp_boxE.innerHTML = "";
