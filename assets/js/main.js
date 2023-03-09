@@ -36,7 +36,7 @@ const generateBtn = document.getElementById("generate");
 generateBtn.addEventListener("click", function () {
   // Prelevo il valore da id_inputE e lo visualizzo sia su console che sull'apposito elemento HTML
   const id = id_inputE.value;
-  console.log(`id_input = ${id_input}`);
+  console.log(`id = ${id}`);
   id_outputE.innerHTML = id;
 
   // Prelevo il valore da km_set_boxE e lo visualizzo a console
@@ -48,17 +48,17 @@ generateBtn.addEventListener("click", function () {
   console.log(`age = ${age}`);
 
   // Calcolo quanto dovrebbe costare il biglietto a prezzo intero e lo visualizzo a console
-  let ticket_bill = km * EURO_AT_KM;
-  console.log(`ticket_bill = ${ticket_bill}€`);
+  let ticket = km * EURO_AT_KM;
+  console.log(`ticket_bill = ${ticket}€`);
 
   // Confronto l'eta dell'utente e applico gli sconti
   console.log(`Fase di valutazione sconti`);
   if (age < AGE_MIN) {
-    ticket_bill = ticket_bill * (1 - AGE_MIN_DISCOUNT);
+    ticket = ticket * (1 - AGE_MIN_DISCOUNT);
     console.log(`age: ${age} < 18 ---> Applico Sconto del 20%`);
     offer_boxE.innerHTML = `Biglietto Under ${AGE_MIN}`;
   } else if (age > AGE_MAX) {
-    ticket_bill = ticket_bill * (1 - AGE_MAX_DISCOUNT);
+    ticket = ticket * (1 - AGE_MAX_DISCOUNT);
     console.log(`age: ${age} > 65 ---> Applico Sconto del 40%`);
     offer_boxE.innerHTML = `Biglietto Over ${AGE_MAX}`;
   } else {
@@ -66,8 +66,8 @@ generateBtn.addEventListener("click", function () {
   }
 
   // Visualizzo il prezzo finale del biglietto sia su console che sull'apposito elemento HTML
-  console.log(`ticket_bill NOW = ${ticket_bill.toFixed(2)}€`);
-  ticket_boxE.innerHTML = ticket_bill.toFixed(2) + "€";
+  console.log(`ticket NOW = ${ticket.toFixed(2)}€`);
+  ticket_boxE.innerHTML = ticket.toFixed(2) + "€";
 
   // Genero random il codice_cp e lo visualizzo sia su console che sull'apposito elemento HTML
   const cp = Math.floor(Math.random() * 100000);
@@ -93,9 +93,9 @@ cancelBtn.addEventListener("click", function () {
 });
 
 //region Function ===================================================
-function getAndLogElement(element) {
-  const elementE = document.getElementById(element);
-  console.log(element + "=" + elementE);
+function getAndLogElement(id) {
+  const elementE = document.getElementById(id);
+  console.log(id + "=" + elementE);
   return elementE;
 }
 //#endregion ========================================================
