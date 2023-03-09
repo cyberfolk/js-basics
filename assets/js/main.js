@@ -1,12 +1,17 @@
-/* Il programma dovrà chiedere all'utente
- * 2 Il numero di km che vuole percorrere
- * 3 L'età del passeggero.
+/* L'utente dovrà compilare i seguenti campi
+ * - 1 Nome e Cognome
+ * - 2 Il numero di km che vuole percorrere
+ * - 3 L'età del passeggero.
  * Sulla base di queste informazioni il prgramma dovrà
- * 4 Calcolare il prezzo totale del viaggio, secondo queste regole:
+ * Calcolare il prezzo totale del viaggio, secondo queste regole:
  * - Il prezzo del biglietto è definito in base ai km (0.21 € al km)
  * - Va applicato uno sconto del 20% per i minorenni
  * - Va applicato uno sconto del 40% per gli over 65.
- * 5 L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). */
+ * L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo).
+ * Creare 2 bottini
+ * - Uno per calcolare e visualizzare i dati relativi al biglietto
+ * - Uno per cancellare i dati nei vari campi
+ */
 
 //#region Definisco le costanti fornite dal testo dell'esercizio ====
 const EURO_AT_KM = 0.21;
@@ -44,28 +49,24 @@ console.log(`carriage_boxE = ${carriage_boxE}`);
 
 const generateBtn = document.getElementById("generate");
 generateBtn.addEventListener("click", function () {
-  // Prelevo il valore da id_input
+  // Prelevo il valore da id_inputE e lo visualizzo sia su console che sull'apposito elemento HTML
   const id = id_inputE.value;
-  // Visualizzo a console.log il dato prelevato
   console.log(`id_input = ${id_input}`);
-  // Metto il valore prelevato in id_user_box2
   id_outputE.innerHTML = id;
 
-  // Prelevo il valore da km_set_box
+  // Prelevo il valore da km_set_boxE e lo visualizzo a console
   const km = km_inputE.value;
-  // Visualizzo a console.log il dato prelevato
   console.log(`km = ${km}`);
 
-  // Prelevo il valore da age_input
+  // Prelevo il valore da age_inputE e lo visualizzo a console
   const age = age_inputE.value;
-  // Visualizzo a console.log il risultato del prompt
   console.log(`age = ${age}`);
 
-  // Calcolo quanto dovrebbe costare il biglietto a prezzo intero
+  // Calcolo quanto dovrebbe costare il biglietto a prezzo intero e lo visualizzo a console
   let ticket_bill = km * EURO_AT_KM;
-  // Visualizzo a console.log il risultato del Calcolo
   console.log(`ticket_bill = ${ticket_bill}€`);
-  // Confronto l'eta dell'utente d applico gli sconti
+
+  // Confronto l'eta dell'utente e applico gli sconti
   console.log(`Fase di valutazione sconti`);
   if (age < AGE_MIN) {
     ticket_bill = ticket_bill * (1 - AGE_MIN_DISCOUNT);
@@ -79,23 +80,18 @@ generateBtn.addEventListener("click", function () {
     offer_boxE.innerHTML = `Biglietto Standard`;
   }
 
-  // Visualizzo a console.log il prezzo finale del biglietto
+  // Visualizzo il prezzo finale del biglietto sia su console che sull'apposito elemento HTML
   console.log(`ticket_bill NOW = ${ticket_bill.toFixed(2)}€`);
-  // Visualizzo sulla pagina ticket_bill nel suo apposito elemento della dom
   ticket_bill_boxE.innerHTML = ticket_bill.toFixed(2) + "€";
 
-  // Genero random il codice_cp
+  // Genero random il codice_cp e lo visualizzo sia su console che sull'apposito elemento HTML
   const cp = Math.floor(Math.random() * 100000);
-  // Visualizzo a console.log il risultato del Calcolo
   console.log(`cp = ${cp}`);
-  // Visualizzo sulla pagina il codice cp nel suo apposito elemento della dom
   cp_boxE.innerHTML = cp;
 
-  // Genero il numero della carrozza
+  // Genero random il numero della carrozza e lo visualizzo sia su console che sull'apposito elemento HTML
   const carriage = Math.floor(Math.random() * 10 + 1);
-  // Visualizzo a console.log il risultato del Calcolo
   console.log(`carriage = ${carriage}`);
-  // Visualizzo sulla pagina il numero di carrozza nel suo apposito elemento della dom
   carriage_boxE.innerHTML = carriage;
 });
 
