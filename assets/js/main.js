@@ -98,3 +98,15 @@ generateBtn.addEventListener("click", function () {
   // Visualizzo sulla pagina il numero di carrozza nel suo apposito elemento della dom
   carriage_boxE.innerHTML = carriage;
 });
+
+const cancelBtn = document.getElementById("cancel");
+cancelBtn.addEventListener("click", function () {
+  id_inputE.value = "";
+  id_outputE.innerHTML = "";
+  km_inputE.value = "";
+  age_inputE.value = "";
+  offer_boxE.innerHTML = "";
+  ticket_bill_boxE.innerHTML = "";
+  cp_boxE.innerHTML = "";
+  carriage_boxE.innerHTML = "";
+});
