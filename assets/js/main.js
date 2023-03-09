@@ -15,20 +15,6 @@ const AGE_MIN_DISCOUNT = 0.2;
 const AGE_MAX = 65;
 const AGE_MAX_DISCOUNT = 0.4;
 
-// Genero random il codice_cp
-const cp = Math.floor(Math.random() * 100000);
-// Visualizzo a console.log il risultato del Calcolo
-console.log(`cp = ${cp}`);
-// Visualizzo sulla pagina il codice cp nel suo apposito elemento della dom
-document.getElementById("cp_box").innerHTML = cp;
-
-// Genero il numero della carrozza
-const carriage = Math.floor(Math.random() * 10 + 1);
-// Visualizzo a console.log il risultato del Calcolo
-console.log(`carriage = ${carriage}`);
-// Visualizzo sulla pagina il numero di carrozza nel suo apposito elemento della dom
-document.getElementById("carriage_box").innerHTML = carriage;
-
 const generate = document.getElementById("generate");
 generate.addEventListener("click", function () {
   // Prelevo il valore da id_input
@@ -62,9 +48,26 @@ generate.addEventListener("click", function () {
     ticket_bill = ticket_bill * (1 - AGE_MAX_DISCOUNT);
     console.log(`age: ${age} > 65 ---> Applico Sconto del 40%`);
     document.getElementById("offer_box").innerHTML = `Biglietto Over ${AGE_MAX}`;
+  } else {
+    document.getElementById("offer_box").innerHTML = `Biglietto Standard`;
   }
+
   // Visualizzo a console.log il prezzo finale del biglietto
   console.log(`ticket_bill NOW = ${ticket_bill.toFixed(2)}€`);
   // Visualizzo sulla pagina ticket_bill nel suo apposito elemento della dom
   document.getElementById("ticket_bill_box").innerHTML = ticket_bill.toFixed(2) + "€";
+
+  // Genero random il codice_cp
+  const cp = Math.floor(Math.random() * 100000);
+  // Visualizzo a console.log il risultato del Calcolo
+  console.log(`cp = ${cp}`);
+  // Visualizzo sulla pagina il codice cp nel suo apposito elemento della dom
+  document.getElementById("cp_box").innerHTML = cp;
+
+  // Genero il numero della carrozza
+  const carriage = Math.floor(Math.random() * 10 + 1);
+  // Visualizzo a console.log il risultato del Calcolo
+  console.log(`carriage = ${carriage}`);
+  // Visualizzo sulla pagina il numero di carrozza nel suo apposito elemento della dom
+  document.getElementById("carriage_box").innerHTML = carriage;
 });
