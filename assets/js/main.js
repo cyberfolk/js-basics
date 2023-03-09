@@ -15,14 +15,6 @@ const AGE_MIN_DISCOUNT = 0.2;
 const AGE_MAX = 65;
 const AGE_MAX_DISCOUNT = 0.4;
 
-// 1. Inserisco un prompt per chiedere all'utente il suo nome e cognome, salvandolo in una variabile
-const id_user = prompt("Inserire nome e cognome utente");
-// Visualizzo a console.log il risultato del prompt
-console.log(`id_user = ${id_user}km`);
-// Visualizzo sulla pagina kmSet nel suo apposito elemento della dom
-document.getElementById("id_user_box1").innerHTML = id_user;
-document.getElementById("id_user_box2").innerHTML = id_user;
-
 // 2. Inserisco un prompt per chiedere all'utente il numero di km che vuole percorrere, salvandolo in una variabile
 const kmSet = prompt("Quanti km vuoi percorrere");
 // Visualizzo a console.log il risultato del prompt
@@ -70,3 +62,11 @@ if (age_user < AGE_MIN) {
 console.log(`ticket_bill NOW = ${ticket_bill.toFixed(2)}€`);
 // Visualizzo sulla pagina ticket_bill nel suo apposito elemento della dom
 document.getElementById("ticket_bill_box").innerHTML = ticket_bill.toFixed(2) + "€";
+
+const element = document.getElementById("generate");
+element.addEventListener("click", function () {
+  // Prelevo il valore da id_user_box1
+  const id_user = document.getElementById("id_user_box1").value;
+  // Metto il valore prelevato in id_user_box2
+  document.getElementById("id_user_box2").innerHTML = id_user;
+});
