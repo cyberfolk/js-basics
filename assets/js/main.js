@@ -8,15 +8,42 @@
  * - Va applicato uno sconto del 40% per gli over 65.
  * 5 L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). */
 
-// Definisco le costanti fornite dal testo dell'esercizio
+//#region Definisco le costanti fornite dal testo dell'esercizio ====
 const EURO_AT_KM = 0.21;
 const AGE_MIN = 18;
 const AGE_MIN_DISCOUNT = 0.2;
 const AGE_MAX = 65;
 const AGE_MAX_DISCOUNT = 0.4;
+//#endregion ========================================================
 
-const generate = document.getElementById("generate");
-generate.addEventListener("click", function () {
+//#region Prelevo Elementi da HTML e li visualizzo a console ========
+const id_inputE = document.getElementById("id_input");
+console.log(`id_input = ${id_inputE}`);
+
+const id_outputE = document.getElementById("id_output");
+console.log(`id_outputE = ${id_outputE}`);
+
+const km_inputE = document.getElementById("km_input");
+console.log(`km_inputE = ${km_inputE}`);
+
+const age_inputE = document.getElementById("age_input");
+console.log(`age_inputE = ${age_inputE}`);
+
+const offer_boxE = document.getElementById("offer_box");
+console.log(`offer_boxE = ${offer_boxE}`);
+
+const ticket_bill_boxE = document.getElementById("ticket_bill_box");
+console.log(`ticket_bill_boxE = ${ticket_bill_boxE}`);
+
+const cp_boxE = document.getElementById("cp_box");
+console.log(`ticket_bill_boxE = ${cp_boxE}`);
+
+const carriage_boxE = document.getElementById("carriage_box");
+console.log(`carriage_boxE = ${carriage_boxE}`);
+//#endregion ========================================================
+
+const generateBtn = document.getElementById("generate");
+generateBtn.addEventListener("click", function () {
   // Prelevo il valore da id_input
   const id = document.getElementById("id_input").value;
   // Visualizzo a console.log il dato prelevato
