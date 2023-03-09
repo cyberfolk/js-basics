@@ -12,16 +12,22 @@
     <body>
         <div class="layover">
             <div class="container">
-                <h1 class="text-white py-5">Biglietti-Treno</h1>
+                <h1 class="text-white pt-3">Biglietti-Treno</h1>
                 <div class="row">
-                    <div class="col-3">
-                        <div class="card h-100">
+                    <div class="col-12">
+                        <div class="card mt-5">
                             <div class="card-header">
                                 <h4>Dati passeggero</h4>
                             </div>
                             <!-- /.card-header -->
 
                             <div class="card-body">
+                                <div class="id_user">
+                                    <span class="fw-bold">Nome e Cognome</span>
+                                    <span id="id_User_box"></span>
+                                </div>
+                                <!-- /.id_user -->
+
                                 <div class="km">
                                     <span class="fw-bold">Lunghezza tratta:</span>
                                     <span id="kmSet_box"></span>
@@ -29,43 +35,66 @@
                                 <!-- /.km -->
 
                                 <div class="age">
-                                    <span class="fw-bold">Età passeggiero:</span>
+                                    <span class="fw-bold">Fascia d'età:</span>
                                     <span id="ageUser_box"></span>
                                 </div>
+
+                                <div class="buttons row row-cols-auto">
+                                    <button class="btn btn-primary col" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount" aria-expanded="false" aria-controls="collapseDiscount">
+                                        Genera
+                                    </button>
+                                    <button class="btn btn-primary col" type="button">
+                                        Annulla
+                                    </button>
+                                </div>
+                                <!-- /.buttons (row)-->
                             </div>
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
                     </div>
-                    <!-- /.col-3 -->
+                    <!-- /.col-12 -->
 
-                    <div class="col-3">
-                        <div class="card h-100">
+                    <div class="col-12">
+                        <div class="card mt-5">
                             <div class="card-header">
-                                <div class="row">
-                                    <h4 class="col-7">Dati biglietto</h4>
-                                    <button class="btn btn-primary col-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount" aria-expanded="false" aria-controls="collapseDiscount">
-                                        Prova scconti
-                                    </button>
-                                    <!-- /.button (collapseDiscount) -->
-                                </div>
-                                <!-- /.row -->
+                                <h4 class="col-7">Dettagli Passeggeri</h4>
                             </div>
                             <!-- /.card-header -->
 
-                            <div class="card-body">
-                                <div class="ticket_bill">
-                                    <span class="fw-bold">Costo Biglietto:</span>
-                                    <span id="ticketBill_box"></span>
+                            <div class="card-body collapse" id="collapseDiscount">
+                                <div class="id_user">
+                                    <span class="fw-bold">Nome e Cognome</span>
+                                    <span></span>
+                                </div>
+                                <!-- /.id_user -->
+
+                                <div class="id_user">
+                                    <span class="fw-bold">Offerta</span>
+                                    <span id="discount_type"></span>
+                                </div>
+                                <!-- /.id_user -->
+
+                                <div class="carriage">
+                                    <span class="fw-bold">Carrozza:</span>
+                                    <span id="carriage_box"></span>
                                 </div>
                                 <!-- /.ticket_bill -->
 
-                                <div class="collapse" id="collapseDiscount">
-                                    <div id="discount_type" class="fw-bold text-danger"></div>
-                                    <span class="fw-bold">Biglietto scontato:</span>
+                                <div class="cp">
+                                    <span class="fw-bold">Codice CP:</span>
+                                    <span id="cp_box"></span>
+                                </div>
+                                <!-- /.ticket_bill -->
+
+                                <div class="ticket_bill">
+                                    <span class="fw-bold">Costo Biglietto:</span>
                                     <span id="ticketBill_discount_box"></span>
                                 </div>
-                                <!-- /#collapseDiscount -->
+                                <!-- /.ticket_bill -->
+
+
+
 
                             </div>
                             <!-- /.card-body -->
