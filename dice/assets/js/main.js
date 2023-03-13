@@ -55,5 +55,4 @@ function rollDice() {
       aiDiceEl.classList.add("show-" + k);
     }
   }
-  setTimeout(rollDice(), 1000);
 }
