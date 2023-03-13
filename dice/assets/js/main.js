@@ -1,4 +1,4 @@
-/* 
+/*  
 * GIOCO DEI DADI
 * Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
 * Stabilire il vincitore, in base a chi fa il punteggio più alto.
@@ -19,12 +19,18 @@ const btnRollEl = document.querySelector("#btn_roll");
 const winnerEl = document.querySelector("#winner");
 const myDiceEl = document.querySelector("#my_dice");
 const aiDiceEl = document.querySelector("#ai_dice");
+const myDiceBoxEl = document.querySelector(".my_dice_box");
+const aiDiceBoxEl = document.querySelector(".ai_dice_box");
 
-btnRollEl.addEventListener("click", function () {
+btnRollEl.onclick = function () {
+  rollDice();
+};
+
+function rollDice() {
   let myDice = Math.floor(Math.random() * 6 + 1);
   let aiDice = Math.floor(Math.random() * 6 + 1);
-  myDiceEl.innerText = myDice;
-  aiDiceEl.innerText = aiDice;
+  myDiceBoxEl.innerText = myDice;
+  aiDiceBoxEl.innerText = aiDice;
 
   if (myDice > aiDice) {
     winnerEl.innerText = "Hai vinto tu";
@@ -33,4 +39,21 @@ btnRollEl.addEventListener("click", function () {
   } else {
     winnerEl.innerText = "Ha vinto l'AI";
   }
-});
+
+  console.log(myDice + " " + aiDice);
+
+  for (var i = 1; i <= 6; i++) {
+    myDiceEl.classList.remove("show-" + i);
+    if (myDice === i) {
+      myDiceEl.classList.add("show-" + i);
+    }
+  }
+
+  for (var k = 1; k <= 6; k++) {
+    aiDiceEl.classList.remove("show-" + k);
+    if (aiDice === k) {
+      aiDiceEl.classList.add("show-" + k);
+    }
+  }
+  setTimeout(rollDice(), 1000);
+}
