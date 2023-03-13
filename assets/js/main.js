@@ -26,8 +26,6 @@ const tryMailElement = document.querySelector("#tryMail");
 const statusEl = document.querySelector("#status");
 const DB_MAIL = ["pippo", "pluto", "paperino", "pippo baudo", "pippo_franco", "pippo_calò"];
 
-/* ============================================================================ */
-
 formEl.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -45,4 +43,26 @@ formEl.addEventListener("reset", function (e) {
   console.log("ho cliccato su reset");
   // svuto il ticket
   statusEl.innerHTML = "Non sei loggato";
+});
+
+/* ============================================================================ */
+
+const btnRollEl = document.querySelector("#btn_roll");
+const winnerEl = document.querySelector("#winner");
+const myDiceEl = document.querySelector("#my_dice");
+const aiDiceEl = document.querySelector("#ai_dice");
+
+btnRollEl.addEventListener("click", function () {
+  let myDice = Math.floor(Math.random() * 6 + 1);
+  let aiDice = Math.floor(Math.random() * 6 + 1);
+  myDiceEl.innerText = myDice;
+  aiDiceEl.innerText = aiDice;
+
+  if (myDice > aiDice) {
+    winnerEl.innerText = "Hai vinto tu";
+  } else if (myDice == aiDice) {
+    winnerEl.innerText = "C'è stato un pareggio";
+  } else {
+    winnerEl.innerText = "Ha vinto l'AI";
+  }
 });
