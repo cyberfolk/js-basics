@@ -20,12 +20,29 @@
 * proviamo ad immaginare le operazioni che vogliamo far svolgere al nostro programma così come lo faremmo "a mano"
 * Buon divertimento e confermate lettura come al solito :baby-yoda:
 */
-
+// Select dom element
+const formEl = document.querySelector("form");
+const tryMailElement = document.querySelector("#tryMail");
+const statusEl = document.querySelector("#status");
 const DB_MAIL = ["pippo", "pluto", "paperino", "pippo baudo", "pippo_franco", "pippo_calò"];
-let tryMail = prompt("Inserisci la tua mail");
 
-for (let i = 0; i < DB_MAIL.length; i++) {
-  if (tryMail == DB_MAIL[i]) {
-    alert("BRAVO SEI MOLTO BRAVO");
+/* ============================================================================ */
+
+formEl.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const tryMail = e.target.tryMail.value;
+
+  for (let i = 0; i < DB_MAIL.length; i++) {
+    if (tryMail == DB_MAIL[i]) {
+      statusEl.innerText = "Sei loggato";
+      console.log("Sei dentro");
+    }
   }
-}
+});
+
+formEl.addEventListener("reset", function (e) {
+  console.log("ho cliccato su reset");
+  // svuto il ticket
+  statusEl.innerHTML = "Non sei loggato";
+});
