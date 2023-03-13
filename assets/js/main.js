@@ -20,3 +20,12 @@
 * proviamo ad immaginare le operazioni che vogliamo far svolgere al nostro programma così come lo faremmo "a mano"
 * Buon divertimento e confermate lettura come al solito :baby-yoda:
 */
+
+const DB_MAIL = ["pippo", "pluto", "paperino", "pippo baudo", "pippo_franco", "pippo_calò"];
+let tryMail = prompt("Inserisci la tua mail");
+
+for (let i = 0; i < DB_MAIL.length; i++) {
+  if (tryMail == DB_MAIL[i]) {
+    alert("BRAVO SEI MOLTO BRAVO");
+  }
+}
