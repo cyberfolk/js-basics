@@ -2,30 +2,11 @@
   border: 1px red dashed;
 }
 
-.ms_container {
-  position: relative;
-  display: inline-block;
-  top: 200px;
-}
-
 .dice {
-  position: relative;
   width: 100px;
   height: 100px;
   transform-style: preserve-3d;
   transition: transform 1s;
-}
-
-
-.dice-one {
-  position: absolute;
-  left: 150px;
-}
-
-.dice-two {
-  position: absolute;
-  left: -50px;
-
 }
 
 .side {
