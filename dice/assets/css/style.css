@@ -15,7 +15,7 @@
   border-radius: 5px;
   width: 100px;
   height: 100px;
-  border: 1px solid #e5e5e5;
+  border: 2px solid #000000;
   text-align: center;
   color: red;
   font-size: 5rem;
@@ -23,28 +23,26 @@
   font-weight: 600;
 }
 
-.side:nth-child(1) {
-  transform: translateZ(3.1em);
-}
+
 
 .side:nth-child(6) {
-  transform: rotateY(90deg) translateZ(3.1em);
+  transform: rotateY(90deg) translateZ(3rem);
 }
 
 .side:nth-child(3) {
-  transform: rotateY(-90deg) translateZ(3.1em);
+  transform: rotateY(-90deg) translateZ(3rem);
 }
 
 .side:nth-child(4) {
-  transform: rotateX(90deg) translateZ(3.1em);
+  transform: rotateX(90deg) translateZ(3rem);
 }
 
 .side:nth-child(5) {
-  transform: rotateX(-90deg) translateZ(3.1em);
+  transform: rotateX(-90deg) translateZ(3rem);
 }
 
 .side:nth-child(2) {
-  transform: rotateY(-180deg) translateZ(3.1em);
+  transform: rotateY(-180deg) translateZ(3rem);
 }
 
 .show-1 {
