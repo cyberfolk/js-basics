@@ -17,7 +17,7 @@ for (let i = 0; i < RANGE_INSERT; i++) {
 }
 
 for (let i = 0; i < numbers.length; i++) {
-  console.log(`Lo ${0}-esimo numero inserito è ${numbers[i]}`);
+  console.log(`Lo ${i}-esimo numero inserito è ${numbers[i]}`);
 }
 
 console.log(`La somma dei numeri inseriti è ${sum}`);
