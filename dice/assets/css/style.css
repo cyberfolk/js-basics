@@ -2,6 +2,14 @@
   border: 1px red dashed;
 }
 
+:root {
+  --d_side2_rotate_x: 270deg;
+  --d_side3_rotate_y: 90deg;
+  --d_side4_rotate_y: 270deg;
+  --d_side5_rotate_x: 90deg;
+  --d_side6_rotate_y: 180deg;
+}
+
 .dice {
   width: 100px;
   height: 100px;
@@ -29,50 +37,48 @@
 }
 
 .side:nth-child(2) {
-  transform: rotateX(-90deg) translateZ(3rem);
+  transform: rotateX(var(--d_side2_rotate_x)) translateZ(3rem);
 }
 
 .side:nth-child(3) {
-  transform: rotateY(90deg) translateZ(3rem);
+  transform: rotateY(var(--d_side3_rotate_y)) translateZ(3rem);
 }
 
 .side:nth-child(4) {
-  transform: rotateY(-90deg) translateZ(3rem);
+  transform: rotateY(var(--d_side4_rotate_y)) translateZ(3rem);
 }
 
 .side:nth-child(5) {
-  transform: rotateX(90deg) translateZ(3rem);
+  transform: rotateX(var(--d_side5_rotate_x)) translateZ(3rem);
 }
 
 .side:nth-child(6) {
-  transform: rotateY(180deg) translateZ(3rem);
-  rotate: 180deg;
+  transform: rotateY(var(--d_side6_rotate_y)) translateZ(3rem);
 }
 
 /* #endregion Describe d6 in 3D ===================*/
 
 
 .show-1 {
-  /* 3 rotation on the xz */
-  transform: rotateX(720deg) rotateZ(-720deg);
+  transform: rotateX(0) rotateZ(360deg);
 }
 
 .show-2 {
-  transform: rotateX(450deg) rotateZ(-720deg);
+  transform: rotateX(calc(-1 * var(--d_side2_rotate_x))) rotateZ(360deg);
 }
 
 .show-3 {
-  transform: rotateY(-450deg) rotateZ(-1440deg);
+  transform: rotateY(calc(-1 * var(--d_side3_rotate_y))) rotateZ(360deg);
 }
 
 .show-4 {
-  transform: rotateY(810deg) rotateZ(720deg);
+  transform: rotateY(calc(-1 * var(--d_side4_rotate_y))) rotateZ(360deg);
 }
 
 .show-5 {
-  transform: rotateX(-810deg) rotateZ(-1080deg);
+  transform: rotateX(calc(-1 * var(--d_side5_rotate_x))) rotateZ(360deg);
 }
 
 .show-6 {
-  transform: rotateX(-900deg) rotateZ(1080deg);
+  transform: rotateY(calc(-1 * var(--d_side6_rotate_y))) rotateZ(360deg);
 }
