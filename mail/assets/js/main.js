@@ -16,7 +16,6 @@
  */
 // Select dom element
 const formEl = document.querySelector("form");
-const tryMailElement = document.querySelector("#tryMail");
 const statusEl = document.querySelector("#status");
 const DB_MAIL = ["pippo", "pluto", "paperino", "pippo baudo", "pippo_franco", "pippo_calò"];
 
