@@ -7,7 +7,11 @@ let sum = 0;
 let numbers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 for (let i = 0; i < RANGE_INSERT; i++) {
-  const num = Number(prompt("inseirici un numero"));
+  let num = Number(prompt("inseirici un numero"));
+  if (isNaN(num)) {
+    num = 0;
+    alert("Hai inseito qualcosa che non è un numero, la conteremo 0");
+  }
   numbers[i] = num;
   sum += num;
 }
