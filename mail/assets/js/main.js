@@ -17,6 +17,7 @@
 // Select dom element
 const formEl = document.querySelector("form");
 const statusEl = document.querySelector("#status");
+let statuFlag = false;
 const DB_MAIL = ["pippo", "pluto", "paperino", "pippo baudo", "pippo_franco", "pippo_calò"];
 
 formEl.addEventListener("submit", function (e) {
@@ -26,9 +27,12 @@ formEl.addEventListener("submit", function (e) {
 
   for (let i = 0; i < DB_MAIL.length; i++) {
     if (tryMail == DB_MAIL[i]) {
-      statusEl.innerText = "Sei loggato";
-      console.log("Sei dentro");
+      statuFlag = true;
     }
+  }
+
+  if (statuFlag == true) {
+    statusEl.innerText = "Sei loggato";
   }
 });
 
