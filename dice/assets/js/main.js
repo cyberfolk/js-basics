@@ -44,15 +44,12 @@ function rollDice() {
 
   for (var i = 1; i <= 6; i++) {
     myDiceEl.classList.remove("show-" + i);
+    aiDiceEl.classList.remove("show-" + i);
     if (myDice === i) {
       myDiceEl.classList.add("show-" + i);
     }
-  }
-
-  for (var k = 1; k <= 6; k++) {
-    aiDiceEl.classList.remove("show-" + k);
-    if (aiDice === k) {
-      aiDiceEl.classList.add("show-" + k);
+    if (aiDice === i) {
+      aiDiceEl.classList.add("show-" + i);
     }
   }
 }
