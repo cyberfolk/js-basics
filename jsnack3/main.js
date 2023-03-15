@@ -31,10 +31,10 @@ let sum = 0;
 let i = 0;
 
 while (i < RANGE_INSERT) {
-  let num = Number(prompt("inseirici un numero"));
-  if (isNaN(num)) {
-    num = 0;
-    alert("Hai inseito qualcosa che non è un numero, la conteremo 0");
+  let num = Number(prompt(`Inseirici un numero. (${i + 1}/${RANGE_INSERT})`));
+  while (isNaN(num)) {
+    alert("Non hai inserito un numero, riprova");
+    num = Number(prompt(`Inseirici un numero. (${i + 1}/${RANGE_INSERT})`));
   }
   sum += num;
   i++;
