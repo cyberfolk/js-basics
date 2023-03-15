@@ -8,13 +8,14 @@
  * Ricordiamoci di incrementare il contatore, o comunque di inserire una condizione di uscita, all'interno ciclo while
  */
 
-const shopList = ["Biscotti", "Latte", "Pasta", "Prosciutto", "Peperoni"];
+const shopListItem = ["Biscotti", "Latte", "Pasta", "Prosciutto", "Peperoni"];
+const shopListQuantity = ["2", "2", "2", "3", "5"];
 const elShopList = document.querySelector(".shop_list");
 let i = 0;
 
-while (i < shopList.length) {
+while (i < shopListItem.length) {
   const elementLi = document.createElement("li");
-  elementLi.innerText = shopList[i];
+  elementLi.innerText = `${shopListQuantity[i]} x ${shopListItem[i]}`;
   console.log(elementLi);
   console.log(elShopList);
   elShopList.insertAdjacentElement("beforeend", elementLi);
