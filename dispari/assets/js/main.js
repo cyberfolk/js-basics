@@ -32,7 +32,7 @@ if (winner) {
 // ===== FUNCTION ========================================================================= //
 function check_userChoice(userChoice) {
     while (userChoice !== 'PARI' && userChoice !== 'DISPARI') {
-        userChoice = prompt(`Prompt errato. Reinserisci pari o dispari?`).toLowerCase();
+        userChoice = prompt(`Prompt errato. Reinserisci pari o dispari?`).toUpperCase();
     }
 }
 
