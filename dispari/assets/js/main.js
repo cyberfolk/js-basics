@@ -6,8 +6,18 @@
 */
 
 let userChoice = prompt("Scegli pari o dispari?").toLowerCase();
-let userNumber = Number(prompt("Inserisci un numero da uno a 5"));
+let userNumber = parseInt(prompt("Inserisci un numero da 1 a 5"));
 let aiNumber = randomNumber1_5();
+
+
+while (userChoice !== 'pari' && userChoice !== 'dispari') {
+    userChoice = prompt(`Prompt errato. Reinserisci pari o dispari?`).toLowerCase();
+}
+console.log(userNumber);
+
+while (userNumber < 1 || userNumber > 5) {
+    userNumber = prompt(`Prompt errato. Reinserisci un numero da 1 a 5?`);
+}
 
 if (isUserWinner(userChoice, userNumber, aiNumber)) {
     console.log(`VINCE UTENTE. Utente sceglie ${userChoice}. Numero Utente ${userNumber}. Numero PC ${aiNumber}`);
