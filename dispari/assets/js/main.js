@@ -11,8 +11,8 @@ let userNumber = parseInt(prompt("Inserisci un numero da 1 a 5"));
 let aiNumber = randomNumber1_5();
 
 // ===== MAIN ============================================================================= //
-check_userChoice(userChoice);
-check_userNumber(userNumber);
+userChoice = check_userChoice(userChoice);
+userNumber = check_userNumber(userNumber);
 let restChoice = findRest(userChoice);
 let winner = isUserWinner(restChoice, userNumber, aiNumber)
 
@@ -34,12 +34,14 @@ function check_userChoice(userChoice) {
     while (userChoice !== 'PARI' && userChoice !== 'DISPARI') {
         userChoice = prompt(`Prompt errato. Reinserisci pari o dispari?`).toUpperCase();
     }
+    return userChoice;
 }
 
 function check_userNumber(userNumber) {
     while (userNumber < 1 || userNumber > 5) {
-        userNumber = prompt(`Prompt errato. Reinserisci un numero da 1 a 5?`);
+        userNumber = parseInt(prompt(`Prompt errato. Reinserisci un numero da 1 a 5?`));
     }
+    return userNumber;
 }
 
 function randomNumber1_5() {
@@ -56,7 +58,7 @@ function findRest(userChoice) {
 
 function isUserWinner(restChoice, userNumber, aiNumber) {
     const sumNumber = userNumber + aiNumber;
-
+    console.log("funzione " + sumNumber);
     if (sumNumber % 2 == restChoice) {
         return true;
     } else {
