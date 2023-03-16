@@ -5,4 +5,8 @@
 * Dichiariamo chi ha vinto.
 */
 
-console.log('Funziona?');
+let usercChoice = prompt("Scegli pari o dispari?").toLowerCase;
+
+function randomNumber1_5() {
+    return Math.floor((Math.random() * 5) + 1);
+}
