@@ -9,22 +9,25 @@ let userChoice = prompt("Scegli pari o dispari?").toLowerCase();
 let userNumber = parseInt(prompt("Inserisci un numero da 1 a 5"));
 let aiNumber = randomNumber1_5();
 
-
+//#region CONTROLLI SUGLI INPUT ========================================================== /
 while (userChoice !== 'pari' && userChoice !== 'dispari') {
     userChoice = prompt(`Prompt errato. Reinserisci pari o dispari?`).toLowerCase();
 }
-console.log(userNumber);
 
 while (userNumber < 1 || userNumber > 5) {
     userNumber = prompt(`Prompt errato. Reinserisci un numero da 1 a 5?`);
 }
+//#endregion ============================================================================= /
 
+//#region OUTPUT ========================================================================= /
 if (isUserWinner(userChoice, userNumber, aiNumber)) {
     console.log(`VINCE UTENTE. Utente sceglie ${userChoice}. Numero Utente ${userNumber}. Numero PC ${aiNumber}`);
 } else {
     console.log(`VINCE PC. Utente sceglie ${userChoice}. Numero Utente ${userNumber}. Numero PC ${aiNumber}`);
 }
+//#endregion ============================================================================= /
 
+//#region FUNCTION ======================================================================= /
 function randomNumber1_5() {
     return Math.floor((Math.random() * 5) + 1);
 }
@@ -32,11 +35,15 @@ function randomNumber1_5() {
 function isUserWinner(userChoice, userNumber, aiNumber) {
     let restChoice = 0
     const sumNumber = userNumber + aiNumber;
-    console.log(`la somma dei numeri è ${sumNumber}`);
+
     if (userChoice == 'dispari') {
         restChoice = 1;
     }
-    console.log(`L'utente ha scelto ${userChoice} quindi il resto è ${restChoice}`);
+
+    console.log(`L'utente ha scelto ${userNumber}`);
+    console.log(`L'utente ha scelto ${userChoice} quindi il %2 è ${restChoice}`);
+    console.log(`Il PC ha scelto ${aiNumber}`);
+    console.log(`La somma dei 2 numeri è ${sumNumber}`);
 
     if (sumNumber % 2 == restChoice) {
         return true;
@@ -44,3 +51,4 @@ function isUserWinner(userChoice, userNumber, aiNumber) {
         return false;
     }
 }
+//#endregion FUNCTION ====================================================================== /
