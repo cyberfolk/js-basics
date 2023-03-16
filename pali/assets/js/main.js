@@ -17,9 +17,5 @@ function isPalindrome(word) {
         i++;
     }
 
-    if (i === MIDDLE_WORD) {
-        return true;
-    } else {
-        return false;
-    }
+    return ((i === MIDDLE_WORD) ? true : false);
 }
