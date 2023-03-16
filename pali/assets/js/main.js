@@ -10,18 +10,16 @@ if (isPalindrome(word)) {
 }
 
 function isPalindrome(word) {
-    let check = false;
     let i = 0;
     const MIDDLE_WORD = Math.floor(word.length / 2);
-    for (let i = 0; i < MIDDLE_WORD; i++) {
-        console.log(`${word[i]} - ${word[word.length - i - 1]}`);
 
-        if (word[i] === word[word.length - i - 1]) {
-            console.log("UGUALIIIII");
-
-
-        }
+    while (word[i] === word[word.length - i - 1] && i < MIDDLE_WORD) {
+        i++;
     }
 
-    return check;
+    if (i === MIDDLE_WORD) {
+        return true;
+    } else {
+        return false;
+    }
 }
