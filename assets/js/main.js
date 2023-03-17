@@ -41,17 +41,12 @@ function calculateNumCell(difficulty) {
 
 function createGrid(numCell, difficulty) {
     for (let i = 0; i < numCell; i++) {
-        const el_cell = createCell(i, difficulty)
+        const el_cell = document.createElement("div");
+        el_cell.classList.add("ms_cell", `ms_line_${difficulty}`)
+        el_cell.value = i + 1;
+        el_cell.onclick = clickCell;
         el_row.append(el_cell);
     }
-}
-
-function createCell(index, difficulty) {
-    const el_cell = document.createElement("div");
-    el_cell.classList.add("ms_cell", `ms_line_${difficulty}`)
-    el_cell.value = index + 1;
-    el_cell.onclick = clickCell;
-    return el_cell;
 }
 
 function clickCell() {
