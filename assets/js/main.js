@@ -1,7 +1,3 @@
-/* CONSEGNA: PALINDROMO
- * Chiedere all’utente di inserire una parola Creare una funzione per capire se la parola inserita è palindroma
- */
-
 /* CONSEGNA
  * 1. L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
  * 2. Ogni cella ha un numero progressivo, da 1 a 100.
