@@ -5,3 +5,20 @@
 #app_main {
     background-color: var(--cm_primary);
 }
+
+#app_main .ms_cell {
+    border: 1px solid black;
+    aspect-ratio: 1/1;
+}
+
+#app_main .ms_cell_line_10 {
+    width: calc(100%/10);
+}
+
+#app_main .ms_cell_line_9 {
+    width: calc(100%/9);
+}
+
+#app_main .ms_cell_line_7 {
+    width: calc(100%/7);
+}
