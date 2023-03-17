@@ -19,7 +19,7 @@ const el_difficulty = document.querySelector("#difficulty");
 el_btnPlay.addEventListener("click", function (e) {
     /* Calculate difficulty and numCell from the select button in DOM */
     let difficulty = readDifficulty(el_difficulty);
-    let numCell = difficulty * difficulty;
+    let numCell = calculateNumCell(difficulty)
 
     /* Delete the previous grid to prevent the following ones from being added in cascade by clicking on play */
     el_row.innerHTML = "";
@@ -30,6 +30,11 @@ el_btnPlay.addEventListener("click", function (e) {
 // ===== FUNCTION ============================================= /
 function readDifficulty() {
     return Number(el_difficulty.value);
+}
+
+function calculateNumCell(difficulty) {
+    /* This function allow to change the logic of calculate the number cell */
+    return difficulty * difficulty;
 }
 
 function createGrid(numCell, difficulty) {
