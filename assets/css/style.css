@@ -11,14 +11,14 @@
     aspect-ratio: 1/1;
 }
 
-#app_main .ms_cell_line_10 {
+#app_main .ms_line_10 {
     width: calc(100%/10);
 }
 
-#app_main .ms_cell_line_9 {
+#app_main .ms_line_9 {
     width: calc(100%/9);
 }
 
-#app_main .ms_cell_line_7 {
+#app_main .ms_line_7 {
     width: calc(100%/7);
 }
