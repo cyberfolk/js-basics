@@ -1,3 +1,7 @@
-.debug * {
-    border: red 1 dashed;
+:root {
+    --cm_primary: #7FFFD4;
+}
+
+#app_main {
+    background-color: var(--cm_primary);
 }
