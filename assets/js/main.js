@@ -16,7 +16,7 @@ const el_row = document.querySelector(".row");
 const el_form = document.querySelector("form");
 const el_difficulty = document.querySelector("#difficulty");
 let difficulty;
-let numCell = 49;
+let numCell;
 
 
 el_form.addEventListener("submit", function (e) {
@@ -26,21 +26,31 @@ el_form.addEventListener("submit", function (e) {
     el_row.innerHTML = "";
 
     /* Calculate difficulty and numCell from the select button in DOM */
-    difficulty = Number(el_difficulty.value);
+    difficulty = readDifficulty(el_difficulty);
     numCell = difficulty * difficulty;
 
-    // ===== POPOLATION LOOP ================================== /
+    createGrid();
+
+});
+
+// ===== FUNCTION ============================================= /
+function readDifficulty() {
+    return Number(el_difficulty.value);
+}
+
+function createGrid() {
     for (let i = 0; i < numCell; i++) {
         const el_cell = document.createElement("div");
         const cell_line = "ms_cell_line_" + difficulty;
         el_cell.classList.add("ms_cell", cell_line)
         el_cell.value = i + 1;
-
-        el_cell.addEventListener("click", function () {
-            el_cell.classList.toggle("bg-primary")
-            console.log(el_cell.value)
-        })
+        el_cell.onclick = clickCell;
 
         el_row.append(el_cell);
     }
-});
+}
+
+function clickCell() {
+    this.classList.toggle("bg-primary")
+    console.log(this.value)
+}
