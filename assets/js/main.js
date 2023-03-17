@@ -22,20 +22,22 @@ const el_difficulty = document.querySelector("#difficulty");
 let difficulty;
 let numCell = 49;
 
-// ===== POPOLATION LOOP ================================== /
 
 el_form.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    /* Delete the previous grid to prevent the following ones from being added in cascade by clicking on play */
     el_row.innerHTML = "";
 
+    /* Calculate difficulty and numCell from the select button in DOM */
     difficulty = Number(el_difficulty.value);
-    console.log(difficulty);
-
     numCell = difficulty * difficulty;
 
+    // ===== POPOLATION LOOP ================================== /
     for (let i = 0; i < numCell; i++) {
         const el_cell = document.createElement("div");
-        el_cell.classList.add("ms_cell", `ms_cell_line_${difficulty}`)
+        const cell_line = "ms_cell_line_" + difficulty;
+        el_cell.classList.add("ms_cell", cell_line)
         el_cell.value = i + 1;
 
         el_cell.addEventListener("click", function () {
