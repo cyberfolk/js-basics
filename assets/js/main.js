@@ -20,30 +20,16 @@ const el_row = document.querySelector(".row");
 
 let numCell = 49;
 
-
+// ===== POPOLATION LOOP ================================== /
 for (let i = 0; i < numCell; i++) {
     const el_cell = document.createElement("div");
     el_cell.classList.add("ms_cell", "ms_cell_line_7")
     el_cell.value = i + 1;
-    el_row.append(el_cell);
-}
 
-// seleziono una cella che ha classe cell e active
-
-const el_cells = document.querySelectorAll(".ms_cell")
-
-// aggiungo eventlisner per la classe active ciclando per la lunghezza dell'array cellEl
-
-
-for (let i = 0; i < el_cells.length; i++) {
-    const cell = el_cells[i];
-    cell.addEventListener("click", function () {
-        cell.classList.toggle("bg-primary")
-        // this.classList.add("active")
-        console.log(cell.value)
-
+    el_cell.addEventListener("click", function () {
+        el_cell.classList.toggle("bg-primary")
+        console.log(el_cell.value)
     })
 
-
-
-} 
+    el_row.append(el_cell);
+}
