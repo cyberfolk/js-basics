@@ -15,4 +15,34 @@
  * con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
  */
 
-console.log("Funziona?");
+
+const el_row = document.querySelector(".row");
+
+let numCell = 49;
+
+
+for (let i = 0; i < numCell; i++) {
+    const el_cell = document.createElement("div");
+    el_cell.classList.add("ms_cell", "ms_cell_line_7")
+    el_row.append(el_cell);
+}
+
+// seleziono una cella che ha classe cell e active
+
+const cellEl = document.querySelectorAll(".cell")
+
+// aggiungo eventlisner per la classe active ciclando per la lunghezza dell'array cellEl
+
+
+/* for (let i = 0; i < cellEl.length; i++) {
+    const thisCell = cellEl[i];
+    console.log(thisCell)
+    thisCell.addEventListener("click", function () {
+        thisCell.classList.toggle("bg_green")
+        // this.classList.add("active")
+        console.log("Changed the color")
+    })
+
+
+
+} */
