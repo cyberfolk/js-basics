@@ -16,6 +16,7 @@ const el_row = document.querySelector(".row");
 const el_btnPlay = document.querySelector("#btn_play");
 const el_difficulty = document.querySelector("#difficulty");
 
+// ===== EVENT ======================================================= /
 el_btnPlay.addEventListener("click", function (e) {
     /* Calculate difficulty and numCell from the select button in DOM */
     let difficulty = readDifficulty(el_difficulty);
@@ -27,7 +28,7 @@ el_btnPlay.addEventListener("click", function (e) {
     createGrid(numCell, difficulty);
 });
 
-// ===== FUNCTION ============================================= /
+// ===== FUNCTION ==================================================== /
 function readDifficulty() {
     return Number(el_difficulty.value);
 }
