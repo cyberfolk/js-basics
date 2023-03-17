@@ -24,25 +24,26 @@ let numCell = 49;
 for (let i = 0; i < numCell; i++) {
     const el_cell = document.createElement("div");
     el_cell.classList.add("ms_cell", "ms_cell_line_7")
+    el_cell.value = i + 1;
     el_row.append(el_cell);
 }
 
 // seleziono una cella che ha classe cell e active
 
-const cellEl = document.querySelectorAll(".cell")
+const el_cells = document.querySelectorAll(".ms_cell")
 
 // aggiungo eventlisner per la classe active ciclando per la lunghezza dell'array cellEl
 
 
-/* for (let i = 0; i < cellEl.length; i++) {
-    const thisCell = cellEl[i];
-    console.log(thisCell)
-    thisCell.addEventListener("click", function () {
-        thisCell.classList.toggle("bg_green")
+for (let i = 0; i < el_cells.length; i++) {
+    const cell = el_cells[i];
+    cell.addEventListener("click", function () {
+        cell.classList.toggle("bg-primary")
         // this.classList.add("active")
-        console.log("Changed the color")
+        console.log(cell.value)
+
     })
 
 
 
-} */
+} 
