@@ -13,12 +13,10 @@
 
 
 const el_row = document.querySelector(".row");
-const el_form = document.querySelector("form");
+const el_btnPlay = document.querySelector("#btn_play");
 const el_difficulty = document.querySelector("#difficulty");
 
-el_form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
+el_btnPlay.addEventListener("click", function (e) {
     /* Calculate difficulty and numCell from the select button in DOM */
     let difficulty = readDifficulty(el_difficulty);
     let numCell = difficulty * difficulty;
