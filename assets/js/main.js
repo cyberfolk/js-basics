@@ -50,7 +50,7 @@ function createGrid(numCell) {
         const el_cell = document.createElement("div");
         el_cell.classList.add("ms_cell", createClassCell(numCell))
         el_cell.value = i + 1;
-        el_cell.onclick = clickCell;
+        el_cell.addEventListener("click", clickCell.bind(null, numCell), false);
         el_row.append(el_cell);
     }
 }
@@ -59,7 +59,7 @@ function createClassCell(numCell) {
     return `ms_line_${Math.sqrt(numCell)}`;
 }
 
-function clickCell() {
+function clickCell(numCell) {
     if (this.classList.contains("ms_cell_bomb")) {
         console.log("BOMBAAAAAA");
         console.log("HAI CLICCATO LA CELLA " + this.value + " BOMBBBBB!!!")
@@ -70,12 +70,15 @@ function clickCell() {
         this.classList.toggle("bg-primary")
         cellClicked++;
         console.log("HAI CLICCATO LA CELLA " + this.value + " Not Bomb")
+        if (cellClicked == (numCell - 16)) {
+            console.log("HAI VINTO");
+        }
     }
 }
 function createCellBombs(numCell) {
     const el_cell = document.querySelectorAll(".ms_cell");
     const bombIndex = generateRandomArray(16, 1, numCell);
-    console.log(bombIndex);
+    console.log(`Posizione delle bombe: ${bombIndex}`);
     for (let i = 0; i < bombIndex.length; i++) {
         /* Use (bombIndex[i] - 1)  as index in el_cell[] to individuate the cell bomb 
          * when i = 0  --> bombIndex give the index of first bomb in the array bombIndex
