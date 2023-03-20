@@ -28,20 +28,22 @@ let count_clickedCells = 0;
 // ===== EVENT ======================================================= /
 el_btnPlay.addEventListener("click", function () {
     /* Clicking on button play create the grid */
-    /* Calculate totCells from the select button in DOM */
-    totCells = calculateNumCell(el_difficulty.value)
-
-    /* Delete the previous grid to prevent the following ones from being added in cascade by clicking on play */
-    el_row.innerHTML = "";
-
+    const totCells = calculateNumCell(el_difficulty.value)
+    refreshGrid();
     createGrid(totCells);
-
     createCellBombs(totCells);
 });
 
 // ===== FUNCTION ==================================================== /
+function refreshGrid() {
+    /* Delete the previous grid to prevent the following ones from being added in cascade by clicking on play */
+    el_row.innerHTML = "";
+    /* Make the el_row recyclable */
+    el_row.style.pointerEvents = "auto";
+}
 function calculateNumCell(difficulty) {
     /* This function allow to change the logic of calculate the number cell */
+    /* Calculate totCells from the select button in DOM */
     return difficulty * difficulty;
 }
 
