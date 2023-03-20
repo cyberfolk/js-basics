@@ -80,6 +80,7 @@ function clickCell(e, totCells) {
         notBomb(e, totCells);
     }
 }
+
 function loseGame(e) {
     console.log(`Col clik numero ${count_clickedCells} hai cliccato la cella numero ${e.value} --> BOMBBBBBAAAA!!!`)
     e.style.backgroundColor = 'red';
@@ -89,7 +90,7 @@ function loseGame(e) {
     el_endGame.style.display = "block";
     el_endGame.style.color = "black";
     el_endGame.innerText = "💀Hai perso💀"
-};
+}
 
 function notBomb(e, totCells) {
     e.classList.toggle("bg-primary")
@@ -99,6 +100,7 @@ function notBomb(e, totCells) {
     console.log(`Col clik numero ${count_clickedCells} hai cliccato la cella numero ${e.value} --> Not Bomb`);
     /* Make not reclickable the safe cell */
     e.style.pointerEvents = "none";
+    e.innerText = countBombAxis(e);
     if (count_clickedCells == (totCells - 16)) {
         wingGame();
     }
@@ -113,15 +115,15 @@ function wingGame() {
 }
 
 function createCellBombs(totCells) {
-    const el_cell = document.querySelectorAll(".ms_cell");
+    const el_cells = document.querySelectorAll(".ms_cell");
     const bombIndex = generateRandomArray(16, 1, totCells);
     console.log(`Posizione delle bombe: ${bombIndex}`);
     for (let i = 0; i < bombIndex.length; i++) {
-        /* Use (bombIndex[i] - 1)  as index in el_cell[] to individuate the cell bomb 
+        /* Use (bombIndex[i] - 1)  as index in el_cells[] to individuate the cell bomb 
          * when i = 0  --> bombIndex give the index of first bomb in the array bombIndex
          * when i = 15 --> bombIndex give the index of last bomb in the array bombIndex
          * cellBomb isn - t ordered */
-        const cellBomb = el_cell[bombIndex[i] - 1];
+        const cellBomb = el_cells[bombIndex[i] - 1];
         cellBomb.classList.add("ms_cell_bomb")
     }
 }
@@ -137,4 +139,35 @@ function generateRandomArray(count, min, max) {
         /* if condition is false --> do nothing */
     }
     return rands;
-}     
+}
+
+function countBombAxis(e) {
+    const el_cells = document.querySelectorAll(".ms_cell");
+    const gridRow = Math.sqrt(el_cells.length);
+    let count = 0;
+    count += countBombX(e, el_cells, gridRow);
+    count += countBombY(e, el_cells, gridRow);
+    return count;
+}
+
+function countBombX(e, el_cells, gridRow) {
+    const cellStart = e.value - ((e.value - 1) % (gridRow)) - 1;
+    let count = 0;
+    for (let i = cellStart; i < (cellStart + gridRow); i++) {
+        if (el_cells[i].classList.contains("ms_cell_bomb")) {
+            count++;
+        }
+    }
+    return count;
+}
+
+function countBombY(e, el_cells, gridRow) {
+    const cellStart = ((e.value - 1) % (gridRow));
+    let count = 0;
+    for (let i = cellStart; i < el_cells.length; i = i + gridRow) {
+        if (el_cells[i].classList.contains("ms_cell_bomb")) {
+            count++;
+        }
+    }
+    return count;
+}

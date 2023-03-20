@@ -10,6 +10,14 @@
 #app_main .ms_cell {
     border: 1px solid black;
     aspect-ratio: 1/1;
+    color: white;
+    font-size: 4rem;
+    /* The following line are for center text     */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }
 
 #app_main .ms_line_10 {
