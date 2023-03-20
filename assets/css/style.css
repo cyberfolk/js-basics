@@ -4,6 +4,7 @@
 
 #app_main {
     background-color: var(--cm_primary);
+    position: relative;
 }
 
 #app_main .ms_cell {
@@ -26,6 +27,45 @@
 #app_main .ms_cell_bomb {
     display: block;
 }
+
+#app_main .endgame {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    animation: goes_down 2s linear, pulse 4s 2s linear infinite;
+    font-weight: bold;
+}
+
+
+@keyframes goes_down {
+    0% {
+        top: 0%;
+    }
+
+    100% {
+        top: 25%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        font-size: 8rem;
+    }
+
+    50% {
+        font-size: 8.5rem;
+    }
+
+    100% {
+        font-size: 8rem;
+    }
+}
+
+
+
 
 .exploded {
     background-image: url("../img/explosion.gif");

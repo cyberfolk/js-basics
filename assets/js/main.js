@@ -26,6 +26,7 @@ const el_difficulty = document.querySelector("#difficulty");
 const el_countClickedCells = document.querySelector("#count_clicked_cells");
 const el_countMissingCells = document.querySelector("#count_missing_cells");
 const el_appMain = document.querySelector("#app_main");
+const el_endGame = document.querySelector(".endgame");
 let count_clickedCells = 0;
 
 // ===== EVENT ======================================================= /
@@ -44,9 +45,11 @@ function refreshGrid(totCells) {
     /* Make the el_row recyclable */
     el_row.style.pointerEvents = "auto";
     /* reset the counter to start over  */
+    count_clickedCells = 0;
     el_countClickedCells.innerText = 0;
     el_countMissingCells.innerText = totCells - 16;
     el_appMain.classList.remove("exploded");
+    el_endGame.style.display = "none";
 }
 
 function calculateNumCell(difficulty) {
@@ -83,7 +86,10 @@ function loseGame(e) {
     el_appMain.classList.add("exploded");
     console.log(`ENDGAME!! Hai cliccato ${count_clickedCells} celle prima di esplodere`);
     el_row.style.pointerEvents = "none";
-}
+    el_endGame.style.display = "block";
+    el_endGame.style.color = "white";
+    el_endGame.innerText = "Hai perso"
+};
 
 function notBomb(e, totCells) {
     e.classList.toggle("bg-primary")
@@ -101,6 +107,9 @@ function notBomb(e, totCells) {
 function wingGame() {
     console.log("HAI VINTO");
     el_row.style.pointerEvents = "none";
+    el_endGame.style.display = "block";
+    el_endGame.style.color = "green";
+    el_endGame.innerText = "Hai vinto"
 }
 
 function createCellBombs(totCells) {
