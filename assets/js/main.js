@@ -40,7 +40,10 @@ function refreshGrid() {
     el_row.innerHTML = "";
     /* Make the el_row recyclable */
     el_row.style.pointerEvents = "auto";
+    /* reset the counter to start over  */
+    count_clickedCells = 0;
 }
+
 function calculateNumCell(difficulty) {
     /* This function allow to change the logic of calculate the number cell */
     /* Calculate totCells from the select button in DOM */
@@ -70,7 +73,7 @@ function clickCell(e, totCells) {
     }
 }
 function loseGame(e, totCells) {
-    console.log("Hai cliccato la cella numero " + e.value + " --> BOMBBBBBAAAA!!!")
+    console.log(`Col clik numero ${count_clickedCells} hai cliccato la cella numero ${e.value} --> BOMBBBBBAAAA!!!`)
     e.style.backgroundColor = 'red';
     console.log(`ENDGAME!! Hai cliccato ${count_clickedCells} celle prima di esplodere`);
     el_row.style.pointerEvents = "none";
@@ -79,7 +82,7 @@ function loseGame(e, totCells) {
 function notBomb(e, totCells) {
     e.classList.toggle("bg-primary")
     count_clickedCells++;
-    console.log("Hai cliccato la cella numero " + e.value + " --> Not Bomb");
+    console.log(`Col clik numero ${count_clickedCells} hai cliccato la cella numero ${e.value} --> Not Bomb`);
     if (count_clickedCells == (totCells - 16)) {
         wingGame();
     }
