@@ -94,11 +94,10 @@ function generateRandomArray(count, min, max) {
     const rands = [];
     while (rands.length < count) {
         const r = Math.floor((Math.random() * max) + min);
-        /* Enter in the IF in the only case where r isn't already contained in the array */
-        if (rands.indexOf(r) == -1) {
-            /* push r in the arry, because r isn't contained in the array */
-            rands.push(r);
-        }
+        /* rands.indexOf(r) == -1 --> in the only case where r isn't contained in thre aray */
+        rands.indexOf(r) == -1 ? rands.push(r) : null;
+        /* if condition is true ---> push r in the arry */
+        /* if condition is false --> do nothing */
     }
     return rands;
 }     
