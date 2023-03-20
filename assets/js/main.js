@@ -19,34 +19,34 @@ const el_difficulty = document.querySelector("#difficulty");
 // ===== EVENT ======================================================= /
 el_btnPlay.addEventListener("click", function () {
     /* Clicking on button play create the grid */
-    /* Calculate difficulty and numCell from the select button in DOM */
-    let difficulty = readDifficulty(el_difficulty);
-    let numCell = calculateNumCell(difficulty)
+    /* Calculate numCell from the select button in DOM */
+    let numCell = calculateNumCell(el_difficulty)
 
     /* Delete the previous grid to prevent the following ones from being added in cascade by clicking on play */
     el_row.innerHTML = "";
 
-    createGrid(numCell, difficulty);
+    createGrid(numCell);
 });
 
 // ===== FUNCTION ==================================================== /
-function readDifficulty() {
-    return Number(el_difficulty.value);
-}
-
-function calculateNumCell(difficulty) {
+function calculateNumCell(el_difficulty) {
     /* This function allow to change the logic of calculate the number cell */
+    const difficulty = Number(el_difficulty.value);
     return difficulty * difficulty;
 }
 
-function createGrid(numCell, difficulty) {
+function createGrid(numCell) {
     for (let i = 0; i < numCell; i++) {
         const el_cell = document.createElement("div");
-        el_cell.classList.add("ms_cell", `ms_line_${difficulty}`)
+        el_cell.classList.add("ms_cell", createClassCell(numCell))
         el_cell.value = i + 1;
         el_cell.onclick = clickCell;
         el_row.append(el_cell);
     }
+}
+
+function createClassCell(numCell) {
+    return `ms_line_${Math.sqrt(numCell)}`;
 }
 
 function clickCell() {
