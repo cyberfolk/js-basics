@@ -23,20 +23,20 @@
 const el_row = document.querySelector(".row");
 const el_btnPlay = document.querySelector("#btn_play");
 const el_difficulty = document.querySelector("#difficulty");
-let cellClicked = 0;
+let count_clickedCells = 0;
 
 // ===== EVENT ======================================================= /
 el_btnPlay.addEventListener("click", function () {
     /* Clicking on button play create the grid */
-    /* Calculate numCell from the select button in DOM */
-    numCell = calculateNumCell(el_difficulty.value)
+    /* Calculate totCells from the select button in DOM */
+    totCells = calculateNumCell(el_difficulty.value)
 
     /* Delete the previous grid to prevent the following ones from being added in cascade by clicking on play */
     el_row.innerHTML = "";
 
-    createGrid(numCell);
+    createGrid(totCells);
 
-    createCellBombs(numCell);
+    createCellBombs(totCells);
 });
 
 // ===== FUNCTION ==================================================== /
@@ -45,39 +45,52 @@ function calculateNumCell(difficulty) {
     return difficulty * difficulty;
 }
 
-function createGrid(numCell) {
-    for (let i = 0; i < numCell; i++) {
+function createGrid(totCells) {
+    for (let i = 0; i < totCells; i++) {
         const el_cell = document.createElement("div");
-        el_cell.classList.add("ms_cell", createClassCell(numCell))
+        el_cell.classList.add("ms_cell", createClassCell(totCells))
         el_cell.value = i + 1;
-        el_cell.onclick = function () { clickCell(this, numCell); }
+        el_cell.onclick = function () { clickCell(this, totCells); }
         el_row.append(el_cell);
     }
 }
 
-function createClassCell(numCell) {
-    return `ms_line_${Math.sqrt(numCell)}`;
+function createClassCell(totCells) {
+    return `ms_line_${Math.sqrt(totCells)}`;
 }
 
-function clickCell(e, numCell) {
-    if (e.classList.contains("ms_cell_bomb")) {
-        console.log("HAI CLICCATO LA CELLA " + e.value + " BOMBBBBBAAAA!!!")
-        e.style.backgroundColor = 'red';
-        console.log(`ENDGAME HAI CLICCATO ${cellClicked} PRIMA DI ESPLODERE`);
-        el_row.style.pointerEvents = "none";
+function clickCell(e, totCells) {
+    const cellContainsBomb = e.classList.contains("ms_cell_bomb");
+    if (cellContainsBomb) {
+        loseGame(e, totCells)
     } else {
-        e.classList.toggle("bg-primary")
-        cellClicked++;
-        console.log("HAI CLICCATO LA CELLA " + e.value + " Not Bomb")
-        if (cellClicked == (numCell - 16)) {
-            console.log("HAI VINTO");
-            el_row.style.pointerEvents = "none";
-        }
+        notBomb(e, totCells);
     }
 }
-function createCellBombs(numCell) {
+function loseGame(e, totCells) {
+    console.log("Hai cliccato la cella numero " + e.value + " --> BOMBBBBBAAAA!!!")
+    e.style.backgroundColor = 'red';
+    console.log(`ENDGAME!! Hai cliccato ${count_clickedCells} celle prima di esplodere`);
+    el_row.style.pointerEvents = "none";
+}
+
+function notBomb(e, totCells) {
+    e.classList.toggle("bg-primary")
+    count_clickedCells++;
+    console.log("Hai cliccato la cella numero " + e.value + " --> Not Bomb");
+    if (count_clickedCells == (totCells - 16)) {
+        wingGame();
+    }
+}
+
+function wingGame() {
+    console.log("HAI VINTO");
+    el_row.style.pointerEvents = "none";
+}
+
+function createCellBombs(totCells) {
     const el_cell = document.querySelectorAll(".ms_cell");
-    const bombIndex = generateRandomArray(16, 1, numCell);
+    const bombIndex = generateRandomArray(16, 1, totCells);
     console.log(`Posizione delle bombe: ${bombIndex}`);
     for (let i = 0; i < bombIndex.length; i++) {
         /* Use (bombIndex[i] - 1)  as index in el_cell[] to individuate the cell bomb 
