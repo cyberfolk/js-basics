@@ -46,6 +46,7 @@ function refreshGrid(totCells) {
     /* reset the counter to start over  */
     el_countClickedCells.innerText = 0;
     el_countMissingCells.innerText = totCells - 16;
+    el_appMain.classList.remove("exploded");
 }
 
 function calculateNumCell(difficulty) {
