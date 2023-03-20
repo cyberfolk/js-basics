@@ -67,12 +67,12 @@ function createClassCell(totCells) {
 function clickCell(e, totCells) {
     const cellContainsBomb = e.classList.contains("ms_cell_bomb");
     if (cellContainsBomb) {
-        loseGame(e, totCells)
+        loseGame(e)
     } else {
         notBomb(e, totCells);
     }
 }
-function loseGame(e, totCells) {
+function loseGame(e) {
     console.log(`Col clik numero ${count_clickedCells} hai cliccato la cella numero ${e.value} --> BOMBBBBBAAAA!!!`)
     e.style.backgroundColor = 'red';
     console.log(`ENDGAME!! Hai cliccato ${count_clickedCells} celle prima di esplodere`);
@@ -83,6 +83,8 @@ function notBomb(e, totCells) {
     e.classList.toggle("bg-primary")
     count_clickedCells++;
     console.log(`Col clik numero ${count_clickedCells} hai cliccato la cella numero ${e.value} --> Not Bomb`);
+    /* Make not reclickable the safe cell */
+    e.style.pointerEvents = "none";
     if (count_clickedCells == (totCells - 16)) {
         wingGame();
     }
