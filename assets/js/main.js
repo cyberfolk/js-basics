@@ -85,6 +85,7 @@ function loseGame(e) {
     console.log(`Col clik numero ${count_clickedCells} hai cliccato la cella numero ${e.value} --> BOMBBBBBAAAA!!!`)
     e.style.backgroundColor = 'red';
     el_appMain.classList.add("exploded");
+    showAllBombs();
     console.log(`ENDGAME!! Hai cliccato ${count_clickedCells} celle prima di esplodere`);
     el_row.style.pointerEvents = "none";
     el_endGame.style.display = "block";
@@ -170,4 +171,11 @@ function countBombY(e, el_cells, gridRow) {
         }
     }
     return count;
+}
+
+function showAllBombs() {
+    const el_cellsBomb = document.querySelectorAll(".ms_cell_bomb");
+    for (let i = 0; i < el_cellsBomb.length; i++) {
+        el_cellsBomb[i].style.backgroundColor = "red";
+    }
 }
