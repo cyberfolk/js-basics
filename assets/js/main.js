@@ -60,19 +60,18 @@ function createClassCell(numCell) {
 }
 
 function clickCell(e, numCell) {
-    console.log(numCell);
-
     if (e.classList.contains("ms_cell_bomb")) {
-        console.log("BOMBAAAAAA");
-        console.log("HAI CLICCATO LA CELLA " + e.value + " BOMBBBBB!!!")
+        console.log("HAI CLICCATO LA CELLA " + e.value + " BOMBBBBBAAAA!!!")
         e.style.backgroundColor = 'red';
         console.log(`ENDGAME HAI CLICCATO ${cellClicked} PRIMA DI ESPLODERE`);
+        el_row.style.pointerEvents = "none";
     } else {
         e.classList.toggle("bg-primary")
         cellClicked++;
         console.log("HAI CLICCATO LA CELLA " + e.value + " Not Bomb")
         if (cellClicked == (numCell - 16)) {
             console.log("HAI VINTO");
+            el_row.style.pointerEvents = "none";
         }
     }
 }
