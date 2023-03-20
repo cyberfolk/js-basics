@@ -23,6 +23,7 @@
 const el_row = document.querySelector(".row");
 const el_btnPlay = document.querySelector("#btn_play");
 const el_difficulty = document.querySelector("#difficulty");
+let cellClicked = 0;
 
 // ===== EVENT ======================================================= /
 el_btnPlay.addEventListener("click", function () {
@@ -61,11 +62,15 @@ function createClassCell(numCell) {
 function clickCell() {
     if (this.classList.contains("ms_cell_bomb")) {
         console.log("BOMBAAAAAA");
+        console.log("HAI CLICCATO LA CELLA " + this.value + " BOMBBBBB!!!")
+        this.style.backgroundColor = 'red';
+        el_row.innerHTML = "";
+        el_row.innerText = `ENDGAME HAI CLICCATO ${cellClicked} PRIMA DI ESPLODERE`
     } else {
-        console.log("okkey");
+        this.classList.toggle("bg-primary")
+        cellClicked++;
+        console.log("HAI CLICCATO LA CELLA " + this.value + " Not Bomb")
     }
-    this.classList.toggle("bg-primary")
-    console.log(this.value)
 }
 function createCellBombs(numCell) {
     const el_cell = document.querySelectorAll(".ms_cell");
