@@ -23,25 +23,30 @@
 const el_row = document.querySelector(".row");
 const el_btnPlay = document.querySelector("#btn_play");
 const el_difficulty = document.querySelector("#difficulty");
+const el_countClickedCells = document.querySelector("#count_clicked_cells");
+const el_countMissingCells = document.querySelector("#count_missing_cells");
+
 let count_clickedCells = 0;
 
 // ===== EVENT ======================================================= /
 el_btnPlay.addEventListener("click", function () {
     /* Clicking on button play create the grid */
     const totCells = calculateNumCell(el_difficulty.value)
-    refreshGrid();
+    refreshGrid(totCells);
     createGrid(totCells);
     createCellBombs(totCells);
 });
 
 // ===== FUNCTION ==================================================== /
-function refreshGrid() {
+function refreshGrid(totCells) {
     /* Delete the previous grid to prevent the following ones from being added in cascade by clicking on play */
     el_row.innerHTML = "";
     /* Make the el_row recyclable */
     el_row.style.pointerEvents = "auto";
     /* reset the counter to start over  */
-    count_clickedCells = 0;
+    console.log(el_countClickedCells);
+    el_countClickedCells.innerText = 0;
+    el_countMissingCells.innerText = totCells - 16;
 }
 
 function calculateNumCell(difficulty) {
@@ -82,6 +87,8 @@ function loseGame(e) {
 function notBomb(e, totCells) {
     e.classList.toggle("bg-primary")
     count_clickedCells++;
+    el_countClickedCells.innerText = count_clickedCells;
+    el_countMissingCells.innerText = totCells - 16 - count_clickedCells;
     console.log(`Col clik numero ${count_clickedCells} hai cliccato la cella numero ${e.value} --> Not Bomb`);
     /* Make not reclickable the safe cell */
     e.style.pointerEvents = "none";
