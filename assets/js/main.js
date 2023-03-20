@@ -25,7 +25,7 @@ const el_btnPlay = document.querySelector("#btn_play");
 const el_difficulty = document.querySelector("#difficulty");
 const el_countClickedCells = document.querySelector("#count_clicked_cells");
 const el_countMissingCells = document.querySelector("#count_missing_cells");
-
+const el_appMain = document.querySelector("#app_main");
 let count_clickedCells = 0;
 
 // ===== EVENT ======================================================= /
@@ -44,7 +44,6 @@ function refreshGrid(totCells) {
     /* Make the el_row recyclable */
     el_row.style.pointerEvents = "auto";
     /* reset the counter to start over  */
-    console.log(el_countClickedCells);
     el_countClickedCells.innerText = 0;
     el_countMissingCells.innerText = totCells - 16;
 }
@@ -80,6 +79,7 @@ function clickCell(e, totCells) {
 function loseGame(e) {
     console.log(`Col clik numero ${count_clickedCells} hai cliccato la cella numero ${e.value} --> BOMBBBBBAAAA!!!`)
     e.style.backgroundColor = 'red';
+    el_appMain.classList.add("exploded");
     console.log(`ENDGAME!! Hai cliccato ${count_clickedCells} celle prima di esplodere`);
     el_row.style.pointerEvents = "none";
 }

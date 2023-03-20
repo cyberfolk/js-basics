@@ -26,3 +26,8 @@
 #app_main .ms_cell_bomb {
     display: block;
 }
+
+.exploded {
+    background-image: url("../img/explosion.gif");
+    background-size: contain;
+}
