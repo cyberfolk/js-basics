@@ -84,7 +84,6 @@ function createCellBombs(numCell) {
         const cellBomb = el_cell[bombIndex[i] - 1];
         cellBomb.classList.add("ms_cell_bomb")
     }
-    return document.querySelectorAll(".ms_cell_bomb");
 }
 
 function generateRandomArray(count, min, max) {
