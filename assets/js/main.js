@@ -59,6 +59,11 @@ function createClassCell(numCell) {
 }
 
 function clickCell() {
+    if (this.classList.contains("ms_cell_bomb")) {
+        console.log("BOMBAAAAAA");
+    } else {
+        console.log("okkey");
+    }
     this.classList.toggle("bg-primary")
     console.log(this.value)
 }
