@@ -29,7 +29,7 @@ let cellClicked = 0;
 el_btnPlay.addEventListener("click", function () {
     /* Clicking on button play create the grid */
     /* Calculate numCell from the select button in DOM */
-    let numCell = calculateNumCell(el_difficulty.value)
+    numCell = calculateNumCell(el_difficulty.value)
 
     /* Delete the previous grid to prevent the following ones from being added in cascade by clicking on play */
     el_row.innerHTML = "";
@@ -50,7 +50,7 @@ function createGrid(numCell) {
         const el_cell = document.createElement("div");
         el_cell.classList.add("ms_cell", createClassCell(numCell))
         el_cell.value = i + 1;
-        el_cell.addEventListener("click", clickCell.bind(null, numCell), false);
+        el_cell.onclick = function () { clickCell(this, numCell); }
         el_row.append(el_cell);
     }
 }
@@ -59,17 +59,18 @@ function createClassCell(numCell) {
     return `ms_line_${Math.sqrt(numCell)}`;
 }
 
-function clickCell(numCell) {
-    if (this.classList.contains("ms_cell_bomb")) {
+function clickCell(e, numCell) {
+    console.log(numCell);
+
+    if (e.classList.contains("ms_cell_bomb")) {
         console.log("BOMBAAAAAA");
-        console.log("HAI CLICCATO LA CELLA " + this.value + " BOMBBBBB!!!")
-        this.style.backgroundColor = 'red';
-        el_row.innerHTML = "";
-        el_row.innerText = `ENDGAME HAI CLICCATO ${cellClicked} PRIMA DI ESPLODERE`
+        console.log("HAI CLICCATO LA CELLA " + e.value + " BOMBBBBB!!!")
+        e.style.backgroundColor = 'red';
+        console.log(`ENDGAME HAI CLICCATO ${cellClicked} PRIMA DI ESPLODERE`);
     } else {
-        this.classList.toggle("bg-primary")
+        e.classList.toggle("bg-primary")
         cellClicked++;
-        console.log("HAI CLICCATO LA CELLA " + this.value + " Not Bomb")
+        console.log("HAI CLICCATO LA CELLA " + e.value + " Not Bomb")
         if (cellClicked == (numCell - 16)) {
             console.log("HAI VINTO");
         }
