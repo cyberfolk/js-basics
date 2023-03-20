@@ -72,6 +72,7 @@ function createCellBombs(numCell) {
          * when i = 15 --> bombIndex give the index of last bomb in the array bombIndex
          * cellBomb isn - t ordered */
         const cellBomb = el_cell[bombIndex[i] - 1];
+        cellBomb.classList.add("ms_cell_bomb")
     }
     return document.querySelectorAll(".ms_cell_bomb");
 }
