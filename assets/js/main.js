@@ -87,8 +87,8 @@ function loseGame(e) {
     console.log(`ENDGAME!! Hai cliccato ${count_clickedCells} celle prima di esplodere`);
     el_row.style.pointerEvents = "none";
     el_endGame.style.display = "block";
-    el_endGame.style.color = "white";
-    el_endGame.innerText = "Hai perso"
+    el_endGame.style.color = "black";
+    el_endGame.innerText = "💀Hai perso💀"
 };
 
 function notBomb(e, totCells) {
@@ -109,7 +109,7 @@ function wingGame() {
     el_row.style.pointerEvents = "none";
     el_endGame.style.display = "block";
     el_endGame.style.color = "green";
-    el_endGame.innerText = "Hai vinto"
+    el_endGame.innerText = "🎺Hai vinto🎺"
 }
 
 function createCellBombs(totCells) {

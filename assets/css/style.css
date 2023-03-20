@@ -33,8 +33,7 @@
     position: absolute;
     top: 25%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 8rem;
+    transform: translate(-50%, -50%) scale(2);
     animation: goes_down 2s linear, pulse 4s 2s linear infinite;
     font-weight: bold;
 }
@@ -52,15 +51,15 @@
 
 @keyframes pulse {
     0% {
-        font-size: 8rem;
+        transform: translate(-50%, -50%) scale(2);
     }
 
     50% {
-        font-size: 8.5rem;
+        transform: translate(-50%, -50%) scale(3);
     }
 
     100% {
-        font-size: 8rem;
+        transform: translate(-50%, -50%) scale(2);
     }
 }
 
