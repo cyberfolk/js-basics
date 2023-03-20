@@ -22,3 +22,7 @@
 #app_main .ms_line_7 {
     width: calc(100%/7);
 }
+
+#app_main .ms_cell_bomb {
+    background-color: red;
+}
