@@ -15,6 +15,7 @@
 const el_row = document.querySelector(".row");
 const el_btnPlay = document.querySelector("#btn_play");
 const el_difficulty = document.querySelector("#difficulty");
+console.log(generateRandomArray(50, 1, 100));
 
 // ===== EVENT ======================================================= /
 el_btnPlay.addEventListener("click", function () {
@@ -52,3 +53,17 @@ function clickCell() {
     this.classList.toggle("bg-primary")
     console.log(this.value)
 }
+
+function generateRandomArray(count, min, max) {
+    /* Generate random Array without duplicate */
+    const rands = [];
+    while (rands.length < count) {
+        const r = Math.floor((Math.random() * max) + min);
+        /* Enter in the IF in the only case where r isn't already contained in the array */
+        if (rands.indexOf(r) == -1) {
+            /* push r in the arry, because r isn't contained in the array */
+            rands.push(r);
+        }
+    }
+    return rands;
+}     
