@@ -21,6 +21,7 @@
  * Organizzare i singoli membri in card/schede
  */
 
+// ===== VARIABLE ==================================================== //
 const teamMembers = [
     {
         nome: "Wayne Barnett",
@@ -53,13 +54,15 @@ const teamMembers = [
     }
 ]
 
-
-console.log("Funziona?");
-// ===== VARIABLE ==================================================== //
-
-
 // ===== MAIN ======================================================== //
-
+for (let i = 0; i < teamMembers.length; i++) {
+    member = teamMembers[i];
+    console.log(`teamMembers[${i}]:`);
+    for (const key in member) {
+        console.log(`${key} = ${member[key]}`);
+    }
+    console.log("");
+}
 
 // ===== EVENT ======================================================= //
 
