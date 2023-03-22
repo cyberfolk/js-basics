@@ -91,24 +91,18 @@ function milestone2() {
         member = teamMembers[i];
         for (const key in member) {
             const li_inner = document.createElement("li");
-            if (key == "foto") {
-                li_inner.innerHTML += `<img src="./assets/img/${member[key]}" alt="" >`
-
-            } else {
-                console.log(key);
-                li_inner.innerText = `${key} = ${member[key]}`
-            }
+            bonus1(key, li_inner, member[key]);
             ul_inner.append(li_inner)
         }
     }
 }
 
-/* function bonus1(key, li_inner, member) {
+function bonus1(key, li_inner, field) {
     if (key == "foto") {
         const el_img = document.createElement("img");
-        el_img.src = `../img/${member[key]}`;
+        el_img.src = `./assets/img/${field}`;
         li_inner.append(el_img);
     } else {
-        li_inner.innerText = `${key} = ${member[key]}`
+        li_inner.innerText = `${key} = ${field}`
     }
-} */
+} 
