@@ -92,7 +92,7 @@ function milestone2() {
         for (const key in member) {
             const li_inner = document.createElement("li");
             if (key == "foto") {
-                li_inner.innerHTML += `<img src="../img/${member[key]}" alt="" >`
+                li_inner.innerHTML += `<img src="./assets/img/${member[key]}" alt="" >`
 
             } else {
                 console.log(key);
