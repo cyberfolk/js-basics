@@ -23,6 +23,7 @@
 
 // ===== VARIABLE ==================================================== //
 const el_container = document.querySelector('.container')
+const el_row = document.querySelector('.row')
 const teamMembers = [
     {
         nome: "Wayne Barnett",
@@ -56,10 +57,10 @@ const teamMembers = [
 ]
 
 // ===== MAIN ======================================================== //
-milestone1();
-milestone2();
-/* bonus1(); */
-
+/* milestone1(); */
+/* milestone2(); */
+/* bonus1();  */
+bonus2()
 
 // ===== EVENT ======================================================= //
 
@@ -105,4 +106,27 @@ function bonus1(key, li_inner, field) {
     } else {
         li_inner.innerText = `${key} = ${field}`
     }
-} 
+}
+
+function bonus2() {
+    for (let i = 0; i < teamMembers.length; i++) {
+        member = teamMembers[i];
+        el_row.innerHTML += `
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">${member["nome"]}</h2>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-header">
+                    <h4 class="card-title text-center">${member["ruolo"]}</h4>
+                    <img src="./assets/img/${member["foto"]}" class="card-img-top" alt="...">
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        `
+    }
+}
