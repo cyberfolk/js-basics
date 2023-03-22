@@ -55,6 +55,8 @@ const teamMembers = [
 ]
 
 // ===== MAIN ======================================================== //
+
+// ==== MILESTONE 1 =================================================
 for (let i = 0; i < teamMembers.length; i++) {
     member = teamMembers[i];
     console.log(`teamMembers[${i}]:`);
@@ -63,6 +65,28 @@ for (let i = 0; i < teamMembers.length; i++) {
     }
     console.log("");
 }
+// ==== MILESTONE 2 =================================================
+const el_container = document.querySelector('.container')
+const ul_extern = document.createElement("ul");
+el_container.append(ul_extern);
+
+for (let i = 0; i < teamMembers.length; i++) {
+    const li_extern = document.createElement("li");
+    li_extern.innerText = `teamMembers[${i}]`;
+    ul_extern.append(li_extern);
+
+    const ul_inner = document.createElement("ul");
+    li_extern.append(ul_inner);
+
+    member = teamMembers[i];
+    for (const key in member) {
+        const li_inner = document.createElement("li");
+        li_inner.innerText = `${key} = ${member[key]}`
+        ul_inner.append(li_inner)
+    }
+}
+
+
 
 // ===== EVENT ======================================================= //
 
