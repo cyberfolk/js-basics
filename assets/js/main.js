@@ -58,6 +58,7 @@ const teamMembers = [
 // ===== MAIN ======================================================== //
 milestone1();
 milestone2();
+/* bonus1(); */
 
 
 // ===== EVENT ======================================================= //
@@ -90,8 +91,24 @@ function milestone2() {
         member = teamMembers[i];
         for (const key in member) {
             const li_inner = document.createElement("li");
-            li_inner.innerText = `${key} = ${member[key]}`
+            if (key == "foto") {
+                li_inner.innerHTML += `<img src="../img/${member[key]}" alt="" >`
+
+            } else {
+                console.log(key);
+                li_inner.innerText = `${key} = ${member[key]}`
+            }
             ul_inner.append(li_inner)
         }
     }
 }
+
+/* function bonus1(key, li_inner, member) {
+    if (key == "foto") {
+        const el_img = document.createElement("img");
+        el_img.src = `../img/${member[key]}`;
+        li_inner.append(el_img);
+    } else {
+        li_inner.innerText = `${key} = ${member[key]}`
+    }
+} */
