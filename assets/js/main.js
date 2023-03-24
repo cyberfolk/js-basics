@@ -107,7 +107,7 @@ function createPostMarkup(post) {
     <div class="post__header">
         <div class="post-meta">
             <div class="post-meta__icon">
-                <img class="profile-pic" src=${post.author.image} alt="${post.author.name}">
+                ${fallBack_profile_pic(post.author)}
             </div>
             <div class="post-meta__data">
                 <div class="post-meta__author">${post.author.name}</div>
@@ -138,6 +138,16 @@ function createPostMarkup(post) {
 function toAmericanDate(dateStr) {
     let date = new Date(dateStr);
     return date.toLocaleDateString("en-US");
+}
+
+function fallBack_profile_pic(author) {
+    if (author.image == null) {
+        var nameSplitted = author.name.split(" ");
+        const signature = nameSplitted[0].charAt(0) + nameSplitted[1].charAt(0);
+        return `<div class="profile-pic-default"><span>${signature}</span></div>`
+    } else {
+        return `<img class="profile-pic" src=${author.image} alt="${author.name}"></img>`
+    }
 }
 
 
