@@ -24,6 +24,7 @@
  * 
  */
 
+// ===== VARIABLE DECLARATION ============================================================= //
 const posts = [
     {
         "id": 1,
@@ -35,8 +36,7 @@ const posts = [
         },
         "likes": 80,
         "created": "2021-06-25"
-    },
-    {
+    }, {
         "id": 2,
         "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
         "media": "https://unsplash.it/600/400?image=112",
@@ -46,8 +46,7 @@ const posts = [
         },
         "likes": 120,
         "created": "2021-09-03"
-    },
-    {
+    }, {
         "id": 3,
         "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
         "media": "https://unsplash.it/600/400?image=234",
@@ -57,8 +56,7 @@ const posts = [
         },
         "likes": 78,
         "created": "2021-05-15"
-    },
-    {
+    }, {
         "id": 4,
         "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
         "media": "https://unsplash.it/600/400?image=24",
@@ -68,8 +66,7 @@ const posts = [
         },
         "likes": 56,
         "created": "2021-04-03"
-    },
-    {
+    }, {
         "id": 5,
         "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
         "media": "https://unsplash.it/600/400?image=534",
@@ -81,3 +78,59 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+
+const el_container = document.querySelector("#container");
+
+// ===== MAIN ============================================================================= //
+popolateFeed(posts, el_container);
+
+// ===== FUNCTION INITIALIZATION ========================================================== //
+function popolateFeed(posts, el_container) {
+    posts.forEach(post => {
+        const el_post = createPostElement(post);
+        el_container.append(el_post);
+    });
+}
+
+function createPostElement(post) {
+    const el_post = document.createElement("div");
+    el_post.classList.add("post");
+    const markup = createPostMarkup(post);
+    el_post.innerHTML = markup;
+    return el_post;
+}
+
+function createPostMarkup(post) {
+    const markup = `
+    <div class="post__header">
+        <div class="post-meta">
+            <div class="post-meta__icon">
+                <img class="profile-pic" src=${post.author.image} alt="${post.author.name}">
+            </div>
+            <div class="post-meta__data">
+                <div class="post-meta__author">${post.author.name}</div>
+                <div class="post-meta__time">${post.created}</div>
+            </div>
+        </div>
+    </div>
+    <div class="post__text">${post.content}</div>
+    <div class="post__image">
+        <img src=${post.media} alt="">
+    </div>
+    <div class="post__footer">
+        <div class="likes js-likes">
+            <div class="likes__cta">
+                <a class="like-button  js-like-button" href="#" data-postid="1">
+                    <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                    <span class="like-button__label">Mi Piace</span>
+                </a>
+            </div>
+            <div class="likes__counter">
+                Piace a <b id="like-counter-1" class="js-likes-counter">${post.likes}</b> persone
+            </div>
+        </div>
+    </div>`
+    return markup;
+}
+
+
