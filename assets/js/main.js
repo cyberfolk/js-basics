@@ -83,7 +83,13 @@ const el_container = document.querySelector("#container");
 
 // ===== MAIN ============================================================================= //
 popolateFeed(posts, el_container);
+const el_like_buttons = document.querySelectorAll(".like-button");
 
+el_like_buttons.forEach(el_button => {
+    el_button.addEventListener('click', function () {
+        this.classList.toggle("like-button--liked")
+    })
+})
 
 // ===== FUNCTION INITIALIZATION ========================================================== //
 function popolateFeed(posts, el_container) {
