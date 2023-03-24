@@ -16,11 +16,11 @@
  * Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed.
  * 
  * BONUS
- * Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo. 
- * Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
- * Formattare le date in formato italiano (gg/mm/aaaa)
- * Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).
- * Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.
+ *  1. Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo. 
+ *  2. Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
+ *  3. Formattare le date in formato italiano (gg/mm/aaaa)
+ *  4. Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).
+ *  5. Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.
  * 
  */
 
@@ -84,6 +84,7 @@ const el_container = document.querySelector("#container");
 // ===== MAIN ============================================================================= //
 popolateFeed(posts, el_container);
 
+
 // ===== FUNCTION INITIALIZATION ========================================================== //
 function popolateFeed(posts, el_container) {
     posts.forEach(post => {
@@ -101,6 +102,7 @@ function createPostElement(post) {
 }
 
 function createPostMarkup(post) {
+    const dateUs = toAmericanDate(post.created);
     const markup = `
     <div class="post__header">
         <div class="post-meta">
@@ -109,7 +111,7 @@ function createPostMarkup(post) {
             </div>
             <div class="post-meta__data">
                 <div class="post-meta__author">${post.author.name}</div>
-                <div class="post-meta__time">${post.created}</div>
+                <div class="post-meta__time">${dateUs}</div>
             </div>
         </div>
     </div>
@@ -131,6 +133,11 @@ function createPostMarkup(post) {
         </div>
     </div>`
     return markup;
+}
+
+function toAmericanDate(dateStr) {
+    let date = new Date(dateStr);
+    return date.toLocaleDateString("en-US");
 }
 
 
