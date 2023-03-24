@@ -85,15 +85,20 @@ const el_container = document.querySelector("#container");
 popolateFeed(posts, el_container);
 const el_like_buttons = document.querySelectorAll(".like-button");
 const el_likes_counters = document.querySelectorAll(".js-likes-counter");
+let id_liked_posts = []
 
 el_like_buttons.forEach((el_button, i) => {
     el_button.addEventListener('click', function () {
         if (this.classList.contains("like-button--liked")) {
             el_likes_counters[i].innerText--;
+            const index_id = id_liked_posts.indexOf(i + 1);
+            id_liked_posts.splice(index_id, 1); // 2nd parameter means remove one item only
         } else {
             el_likes_counters[i].innerText++
+            id_liked_posts.push(i + 1);
         }
         this.classList.toggle("like-button--liked");
+        console.log(`ID dei post a cui hai messo like: ${id_liked_posts}`);
     })
 })
 
