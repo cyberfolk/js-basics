@@ -87,16 +87,10 @@ const el_like_buttons = document.querySelectorAll(".like-button");
 const el_likes_counters = document.querySelectorAll(".js-likes-counter");
 let id_liked_posts = []
 
+// Add event listener to all liked button in dom
 el_like_buttons.forEach((el_button, i) => {
     el_button.addEventListener('click', function () {
-        if (this.classList.contains("like-button--liked")) {
-            el_likes_counters[i].innerText--;
-            const index_id = id_liked_posts.indexOf(i + 1);
-            id_liked_posts.splice(index_id, 1); // 2nd parameter means remove one item only
-        } else {
-            el_likes_counters[i].innerText++
-            id_liked_posts.push(i + 1);
-        }
+        modify_likes_counter(this.classList, el_likes_counters[i], id_liked_posts, posts[i].id);
         this.classList.toggle("like-button--liked");
         console.log(`ID dei post a cui hai messo like: ${id_liked_posts}`);
     })
@@ -169,6 +163,17 @@ function fallBack_profile_pic(author) {
         return `<div class="profile-pic-default"><span>${signature}</span></div>`
     } else {
         return `<img class="profile-pic" src=${author.image} alt="${author.name}"></img>`
+    }
+}
+
+function modify_likes_counter(el_button_classList, el_likes_counter, id_liked_posts, post_id) {
+    if (el_button_classList.contains("like-button--liked")) {
+        el_likes_counter.innerText--;
+        const index_id = id_liked_posts.indexOf(post_id);
+        id_liked_posts.splice(index_id, 1); // 2nd parameter means remove one item only
+    } else {
+        el_likes_counter.innerText++
+        id_liked_posts.push(post_id);
     }
 }
 
