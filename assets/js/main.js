@@ -114,7 +114,7 @@ function createPostElement(post) {
 }
 
 function createPostMarkup(post) {
-    const dateUs = toAmericanDate(post.created);
+    const dateIta = convertDate(post.created, "en-GB");
     const markup = `
     <div class="post__header">
         <div class="post-meta">
@@ -123,7 +123,7 @@ function createPostMarkup(post) {
             </div>
             <div class="post-meta__data">
                 <div class="post-meta__author">${post.author.name}</div>
-                <div class="post-meta__time">${dateUs}</div>
+                <div class="post-meta__time">${dateIta}</div>
             </div>
         </div>
     </div>
@@ -150,6 +150,11 @@ function createPostMarkup(post) {
 function toAmericanDate(dateStr) {
     let date = new Date(dateStr);
     return date.toLocaleDateString("en-US");
+}
+
+function convertDate(dateStr, format) {
+    let date = new Date(dateStr);
+    return date.toLocaleDateString(format);
 }
 
 function fallBack_profile_pic(author) {
