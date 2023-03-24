@@ -88,8 +88,12 @@ const el_likes_counters = document.querySelectorAll(".js-likes-counter");
 
 el_like_buttons.forEach((el_button, i) => {
     el_button.addEventListener('click', function () {
-        this.classList.toggle("like-button--liked")
-        el_likes_counters[i]++;
+        if (this.classList.contains("like-button--liked")) {
+            el_likes_counters[i].innerText--;
+        } else {
+            el_likes_counters[i].innerText++
+        }
+        this.classList.toggle("like-button--liked");
     })
 })
 
