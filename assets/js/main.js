@@ -1,4 +1,5 @@
-/* DESCRIZIONE
+/**
+ * DESCRIZIONE
  * Ricreiamo un feed social aggiungendo al layout di base fornito, il nostro script JS in cui:
  * 
  * MILESTONE 1
@@ -23,7 +24,10 @@
  *  5. Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.
  * 
  */
+for (let s = 0; s < array.length; s++) {
+    const element = array[s];
 
+}
 // ===== VARIABLE DECLARATION ============================================================= //
 const posts = [
     {
