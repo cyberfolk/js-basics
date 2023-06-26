@@ -24,10 +24,7 @@
  *  5. Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.
  * 
  */
-for (let s = 0; s < array.length; s++) {
-    const element = array[s];
 
-}
 // ===== VARIABLE DECLARATION ============================================================= //
 const posts = [
     {
