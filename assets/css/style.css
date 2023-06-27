@@ -4,11 +4,20 @@
 
 #app_main {
     background-color: var(--cm_primary);
+    position: relative;
 }
 
 #app_main .ms_cell {
     border: 1px solid black;
     aspect-ratio: 1/1;
+    color: white;
+    font-size: 4rem;
+    /* The following line are for center text     */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }
 
 #app_main .ms_line_10 {
@@ -21,4 +30,51 @@
 
 #app_main .ms_line_7 {
     width: calc(100%/7);
+}
+
+#app_main .ms_cell_bomb {
+    display: block;
+}
+
+#app_main .endgame {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+    animation: goes_down 2s linear, pulse 4s 2s linear infinite;
+    font-weight: bold;
+}
+
+
+@keyframes goes_down {
+    0% {
+        top: 0%;
+    }
+
+    100% {
+        top: 25%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(2);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(3);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+    }
+}
+
+
+
+
+.exploded {
+    background-image: url("../img/explosion.gif");
+    background-size: contain;
 }
