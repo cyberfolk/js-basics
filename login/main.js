@@ -5,15 +5,8 @@
  * stampa un messaggio appropriato sull’esito del controllo.
  * MAIL BONUS
  * Usiamo un input e un bottone per inserire la mail e poi mostriamo i risultati in pagina.
- *
- * CONSIGLI DEL GIORNO:
- * scriviamo sempre prima dei commenti in italiano per capire cosa vogliamo fare
- * javascript non fa nulla da solo, dobbiamo dirgli noi cosa vogliamo fare
- * si ma noi cosa vogliamo fare?
- * torniamo a scrivere in italiano
- * proviamo ad immaginare le operazioni che vogliamo far svolgere al nostro programma così come lo faremmo "a mano"
- * Buon divertimento e confermate lettura come al solito :baby-yoda:
  */
+
 // Select dom element
 const formEl = document.querySelector("form");
 const statusEl = document.querySelector("#status");
