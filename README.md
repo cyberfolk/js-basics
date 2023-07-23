@@ -1,4 +1,4 @@
-# List of PHP basics exercises
+# List of JS basics exercises
 - **biglietto-treno** &rarr; L'utente inserisci parametri e il prezzo del biglietto verrà mostrato in pagina
 - **biglietto-treno-form** &rarr; Come l'esercizio precedente ma i dati vengono passati tramite un form
 - **dice** &rarr; Il pc lancia due dadi e dice chi ha vinto
