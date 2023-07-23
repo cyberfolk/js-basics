@@ -1,13 +1,7 @@
-# js-our-team
-
-## Brief
+# Our-team
 
 Utilizzando i dati forniti, creare un array di oggetti per rappresentare i membri del team.
-Ogni membro è caratterizzato dalle seguenti informazioni:
-
-- nome
-- ruolo
-- foto
+Ogni membro è caratterizzato dalle seguenti informazioni: `nome`, `ruolo` e `foto`
 
 ## Milestone
 

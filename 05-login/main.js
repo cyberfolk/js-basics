@@ -1,12 +1,3 @@
-/*
- * MAIL
- * Chiedi all’utente la sua email,
- * controlla che sia nella lista di chi può accedere,
- * stampa un messaggio appropriato sull’esito del controllo.
- * MAIL BONUS
- * Usiamo un input e un bottone per inserire la mail e poi mostriamo i risultati in pagina.
- */
-
 // Select dom element
 const formEl = document.querySelector("form");
 const statusEl = document.querySelector("#status");
