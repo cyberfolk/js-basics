@@ -1,0 +1,19 @@
+<script>
+    let DECIMAL = 9;
+    let ROMAN = "";
+    const CONVERTER = [
+        ["", "M", "MM", "MMM", "MG", "G", "GM", "GMM", "GMMM", "MG", "ERROR"],
+        ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM", "ERROR"],
+        ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC", "ERROR"],
+        ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "ERROR"],
+    ]
+
+    DECIMAL = DECIMAL.toString().padStart(4, "0");;
+
+    for (let i = 0; i < DECIMAL.length; i++) {
+        const toInt = parseInt(DECIMAL[i]);
+        ROMAN += CONVERTER[i][toInt]
+    }
+
+    console.log(ROMAN);
+</script>
