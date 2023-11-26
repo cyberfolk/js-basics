@@ -2,7 +2,7 @@
 
 **Initial commit**: 07/3/23  
 
-:stars: This Repo contains fundamental Javascript exercises such as:
+**Info**: :stars: This Repo contains fundamental Javascript exercises such as:
 
 ## Exercises list
 
