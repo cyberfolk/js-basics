@@ -1,13 +1,19 @@
-# List of JS basics exercises
+# Javascript Basics
 
--   **biglietto-treno** &rarr; L'utente inserisci parametri e il prezzo del biglietto verrà mostrato in pagina
--   **biglietto-treno-form** &rarr; Come l'esercizio precedente ma i dati vengono passati tramite un form
--   **dice** &rarr; Il pc lancia due dadi e dice chi ha vinto
--   **login** &rarr; L'utente inserisce la sua mail, il pc controlla in un array e determina se l'utente può accedere.
--   **lista-spesa** &rarr; Stampare a schermo gli elementi di un array con un `ciclo while`
--   **pali** &rarr; L'utente inserisce una parola e il pc dice se è palindroma.
--   **dispari** &rarr; L'utente sceglie pari o dispari, il pc generà 2 numeri casuali, fa la somma e dice se l'utente ha indovinato.
--   **our-team** &rarr; Stampare a schermo delle `card` per rappresentare i dati contenuti in un `object-array`
--   **pwdgen-wannabe** &rarr; L'utente inserisce dei parametri, il pc li restituisce concatenati in una stringa
--   **social-posts** &rarr; Aggiungere script JS per rendere modulare un template html dato.
--   **snacks** &rarr; Quick and technical exercises
+**Initial commit**: 07/3/23  
+
+:stars: This Repo contains fundamental Javascript exercises such as:
+
+## Exercises list
+
+-   **biglietto-treno** &rarr; The user enters the parameters and the ticket price will be shown on the page.
+-   **biglietto-treno-form** &rarr; Like the previous exercise but the data is passed through a form.
+-   **dice** &rarr; The PC rolls two dice and says who won.
+-   **login** &rarr; The user enters his email, and the PC checks in an array and determines if the user can log in.
+-   **lista-spesa** &rarr; Print the elements of an array to the screen with a `while loop`.
+-   **pali** &rarr; The user enters a word and the PC says if it is a palindrome.
+-   **dispari** &rarr; The user chooses odd or even, PC will sum 2 random numbers, and tell if the user guessed correctly.
+-   **our-team** &rarr; Print `cards` to the screen to represent the data contained in an `object-array`.
+-   **pwdgen-wannabe** &rarr; The user enters parameters and the PC returns them concatenated into a string,
+-   **social-posts** &rarr; Add JS script to modularize a given HTML template.
+-   **snacks** &rarr; Quick and technical exercises.
